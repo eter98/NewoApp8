@@ -1,0 +1,502 @@
+entity Miembros {
+    nombre String,
+    apellido String,
+    nacionalidad String,
+    tipoDocumento TipoDocumentod,
+    identificacion Integer,
+    fechaNacimiento LocalDate,
+    fechaRegistro LocalDate,
+    genero Generod,
+    correoElectronico String,
+    celular String,
+    derechosDeCompra Boolean,
+    accesoIlimitado Boolean
+    aliado Boolean,
+    host Boolean
+}
+
+enum TipoDocumentod {
+	Cedula, Cedula_Extranjeria, Pasaporte, Otro
+}
+
+entity PerfilMiembro {
+	biografia TextBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    fot3 ImageBlob,
+    conocimientosQueDomina String,
+    temasDeInteres String,
+    facebook String,
+    instagram String,
+    idGoogle String,
+    twiter String
+}
+
+
+entity EntradaMiembros {
+	registroFecha ZonedDateTime,
+    tipoEntrada TipoEntradad,
+    tipoIngreso TipoIngresod,
+    tiempoMaximo Boolean
+}
+
+entity Invitados {
+	nombre String,
+    apellido String,
+    tipoDocumento TipoDocumentod,
+    identificacion String,
+    correo String,
+    telefono String,
+}
+entity EntradaInvitados {
+    registroFecha ZonedDateTime,
+	tipoEntrada TipoEntradad,
+    tipoIngreso TipoIngresod,
+    tiempoMaximo Boolean
+}
+
+entity Sedes {
+	nombreSede String,
+    coordenadaX Double,
+    coordenadaY Double,
+    direccion String,
+    telefonoComunidad String,
+    telefonoNegocio String,
+    descripcionSede TextBlob,
+    horario String,
+    video AnyBlob,
+    imagen1 ImageBlob,
+    imagen2 ImageBlob,
+    imagen3 ImageBlob,
+    imagen4 ImageBlob,
+    imagen5 ImageBlob,
+    imagen6 ImageBlob,
+}
+
+entity EspacioLibre {
+	nombre String,
+    capacidadInstalada Integer,
+    wifi String
+    tarifa1hMiembro Integer,
+    tarifa2hMiembro Integer,
+    tarifa3hMiembro Integer,
+    tarifa4hMiembro Integer,
+    tarifa5hMiembro Integer,
+    tarifa6hMiembro Integer,
+    tarifa7hMiembro Integer,
+    tarifa8hMiembro Integer,
+    tarifa1hInvitado Integer,
+    tarifa2hInvitado Integer,
+    tarifa3hInvitado Integer,
+    tarifa4hInvitado Integer,
+    tarifa5hInvitado Integer,
+    tarifa6hInvitado Integer,
+    tarifa7hInvitado Integer,
+    tarifa8hInvitado Integer,
+    impuesto Impuestod
+    video AnyBlob,
+    imagen1 ImageBlob,
+    imagen2 ImageBlob,
+    imagen3 ImageBlob,
+    imagen4 ImageBlob,
+    imagen5 ImageBlob,
+    imagen6 ImageBlob,
+}
+
+entity TipoEspacio {
+	tipoEspacio String,
+}
+
+entity HostSede {
+	
+}
+
+entity Reservas {
+	registroFechaEntrada ZonedDateTime,
+    registroFechaSalida ZonedDateTime,
+    estadoReserva EstadoReservad,
+}
+
+enum EstadoReservad {
+	Diseponible, Reservado, Ocupado, Extendido, Cerrado
+}
+
+entity EspaciosReserva {
+	nombre String,
+    descripcion String,
+    facilidades String,
+    capacidad Integer,
+    apertura String,
+    cierre String,
+    tarifa1Hora Integer,
+    tarifa2Hora Integer,
+    tarifa3Hora Integer,
+    tarifa4Hora Integer,
+    tarifa5Hora Integer,
+    tarifa6Hora Integer,
+    tarifa7Hora Integer,
+    tarifa8Hora Integer,
+    impuesto Impuestod,
+    apertura String,
+    cierre String,
+    wifi String,
+    video AnyBlob,
+    imagen1 ImageBlob,
+    imagen2 ImageBlob,
+    imagen3 ImageBlob,
+    imagen4 ImageBlob,
+    imagen5 ImageBlob,
+    imagen6 ImageBlob,
+    
+}
+
+
+entity RegistroCompra {
+	consumoMarket Boolean,
+}
+
+entity Facturacion {
+	titularFactura String,
+    tipoPersona TipoPersonad,
+    periodicidadFacturacion PeriodicidadFacturaciond,
+    maximoMonto Integer
+}
+
+entity EquipoEmpresas {
+	nombre String,
+    telefono String,
+    correo String,
+    direccion String,
+    descripcion TextBlob,
+    logos ImageBlob,
+    paginaWeb String
+}
+
+entity MiembrosEquipoEmpresas{
+	
+}
+entity CuentaAsociada {
+	identificaciontitular String,
+    nombreTitular String,
+    apellidoTitular String,
+    numeroCuenta String,
+    tipoCuenta String,
+    codigoSeguridad String,
+    fechaVencimiento LocalDate
+}
+
+entity Beneficio {
+	tipoBeneficio Beneficiosd,
+    descuento Integer
+}
+
+entity PerfilEquipoEmpresa {
+    biografia TextBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    fot3 ImageBlob,
+    conocimientosQueDomina String,
+    temasDeInteres String,
+    facebook String,
+    instagram String,
+    idGoogle String,
+    twiter String
+}
+
+entity Empresa {
+	razonSocial String,
+    nit String,
+    direccion String,
+    telefono String,
+    correo String,
+    celular String
+}
+entity Landing {
+	nombre String,
+    descripcion String,
+    telefonoNegocio String,
+    numeroPuestos Integer,
+    tarifa Integer,
+    fotografia ImageBlob,
+    mpuesto Impuestod
+}
+
+entity ProductosServicios {
+	nombreProducto String,
+    foto ImageBlob,
+    descripcion String,
+    inventariables Boolean,
+    valor Integer,
+    impuesto Impuestod
+    video AnyBlob,
+    imagen1 ImageBlob,
+    imagen2 ImageBlob,
+    imagen3 ImageBlob,
+    imagen4 ImageBlob,
+    imagen5 ImageBlob,
+    imagen6 ImageBlob,
+}
+
+
+entity Pais {
+ 	nombrePais String
+}
+
+entity Ciudad {
+	nombreCiudad String
+}
+
+entity Blog {
+	titulo String,
+    descripcion String,
+	tipoContenido Categoriad,
+    
+    contenidos TextBlob,
+    audio AnyBlob,
+    video AnyBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    banner ImageBlob,
+    tipoConsumo TipoConsumod,
+    valor Float,
+    impuesto Impuestod,
+    estadoPublicacion EstadoPublicaciond
+}
+
+entity Evento {
+	nombreEvento String,
+    descripcion TextBlob,
+    audio AnyBlob,
+    video AnyBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    banner ImageBlob,
+    tipoConsumo TipoConsumod,
+    valor Float,
+    impuesto Impuestod,
+    tipoEvento Categoriad
+}
+
+entity CategoriaContenidos {
+	categoria String,
+}
+
+relationship ManyToOne {
+	Blog{categoriaBlog(categoria)} to CategoriaContenidos,
+    Evento{categoriaEvento(categoria)} to CategoriaContenidos,
+    Grupos{categoriaGrupo(categoria)} to CategoriaContenidos,
+}
+entity Grupos {
+	nombreGrupo String,
+    instagram String,
+    facebook String,
+    twiter String,
+    linkedIn String,
+    tipoGrupo TipoGrupod,
+    tipoConsumo TipoConsumod,
+    valorSuscripcion Integer,
+    impuesto Impuestod,
+    reglasGrupo TextBlob,
+    audio AnyBlob,
+    video AnyBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    banner ImageBlob,
+}
+
+entity MiembrosGrupo {
+
+}
+
+entity RecursosFisicos {
+	recurso String,
+    tipo TipoRecursod,
+    unidadMedida String,
+    valorUnitario Integer,
+    valor1H Integer,
+    valor2H Integer,
+    valor3H Integer,
+    valor4H Integer,
+    valor5H Integer,
+    valor6H Integer,
+    valor7H Integer,
+    valor8H Integer,
+    valor9H Integer,
+    valor10H Integer,
+    valor11H Integer,
+    valor12H Integer,
+    impuesto Impuestod,
+    foto ImageBlob,
+    video AnyBlob,
+}
+
+entity UsoRecursoFisico {
+	registroFechaInicio ZonedDateTime,
+    registroFechaFinal ZonedDateTime,
+    tipoRegistro TipoIniciod,
+
+}
+entity TipoRecurso {
+	nombre String,
+	descripcion String
+}
+
+
+entity ConsumoMarket {
+	totalConsumido Integer,
+    registroFechaInicial LocalDate,
+    registroFechaFinal LocalDate,
+    impuesto Impuestod
+}
+
+entity PrepagoConsumo {
+	aporte Integer,
+	saldoActual Integer,
+    fechaRegistro LocalDate,
+    fechaSaldoActual LocalDate,
+}
+
+entity MargenNewoEventos {
+	porcentajeMargen Integer
+}
+
+entity MargenNewoGrupos {
+	porcentajeMargen Integer
+}
+
+entity MargenNewoBlog {
+	porcentajeMargen Integer
+}
+
+entity MargenNewoProductos {
+	porcentajeMargen Integer
+}
+
+entity TipoPrepagoConsumo {
+	nombre String,
+    descripcion String,
+    valorMinimo Integer,
+    valorMaximo Integer,
+}
+
+relationship OneToOne {
+	PerfilMiembro{miembro(identificacion)} to Miembros,
+    MargenNewoEventos{evento(nombreEvento)} to Evento,
+
+}
+
+
+
+relationship ManyToOne {
+	Miembros{miembro(login)} to User,
+    EquipoEmpresas{usuario(login)} to User,
+    Blog{Grupos(NombreGrupos)} to Grupos,
+    Evento{Grupos(NombreGrupos)} to Grupos,
+    Invitados{miembro(identificacion)} to Miembros,
+    Blog{miembro(identificacion)} to Miembros,
+    Evento{miebro(identificacion)} to Miembros,
+    MiembrosGrupo{miembro(identificacion)} to Miembros,
+    Invitados{miembro(identificacion)} to Miembros,
+    EquipoEmpresas{miembro(identificacion)} to Miembros,
+    EquipoEmpresas{empresa(razonSocial)} to Empresa,
+    MiembrosEquipoEmpresas{empresa(razonSocial)} to Empresa,
+    MiembrosEquipoEmpresas{equipo(nombre)} to EquipoEmpresas,
+	ConsumoMarket{miembro(identificacion)} to Miembros,
+    Reservas{miembro(identificacion)} to Miembros,
+    RegistroCompra{miembro(identificacion)} to Miembros,
+    EntradaMiembros{miembro(Identificacion)} to Miembros,
+    Beneficio{miembro(identificacion)} to Miembros,
+    Grupos{evento(nombreEvento)} to Evento,
+    Ciudad{pais(nombrePais)} to Pais,
+    Miembros{sede(nombreSede)} to Sedes,
+    EspacioLibre{sede(nombreSede)} to Sedes,
+    EspacioLibre{tipoEspacio(tipoEspacio)} to TipoEspacio
+    EspaciosReserva{sede(nombreSede)} to Sedes,
+    Landing{sede(nombreSede)} to Sedes,
+    HostSede{sede(nombreSede)} to Sedes,
+    HostSede{miembro(identificacion)} to Miembros,
+    RecursosFisicos{sede(nombreSede)} to Sedes,
+    Sedes{ciudad(nombreCiudad)} to Ciudad,
+    EntradaMiembros{Espacio(nombre)} to EspacioLibre,
+	EntradaInvitados{Espacio(nombre)} to EspacioLibre,
+    Reservas{Espacio(nombre)} to EspaciosReserva,
+    EntradaMiembros{EspacioReserva(nombre)} to EspaciosReserva,
+	EntradaInvitados{EspacioReserva(nombre)} to EspaciosReserva,
+    RecursosFisicos{tipoRecurso(nombre)} to TipoRecurso,
+    UsoRecursoFisico{recurso(recurso)} to RecursosFisicos,
+    UsoRecursoFisico{miembro(identificacion)} to Miembros,
+    Facturacion{empresa(razonSocial)} to Empresa,
+    PerfilEquipoEmpresa{empresa(razonSocial)} to Empresa,
+    EntradaInvitados{invitado(identificacion)} to Invitados,
+    EntradaInvitados{miembro(identificacion)} to Miembros,
+    MargenNewoBlog{blog(descripcion)} to Blog,
+    MargenNewoGrupos{grupo(nombreGrupo)} to Grupos,
+    MargenNewoProductos{producto(nombreProducto)} to ProductosServicios,
+    MiembrosEquipoEmpresas{miembro(identificacion)} to Miembros,
+    Facturacion{titular(identificacionTitular)} to CuentaAsociada,
+    Empresa{aliado(aliado)} to Miembros,
+    PrepagoConsumo{miembro(identificacion)} to Miembros,
+    TipoPrepagoConsumo{tipoBeneficio(tipoBeneficio)} to Beneficio,
+    PrepagoConsumo{tipoPrepago(nombre)} to TipoPrepagoConsumo,
+    
+}
+
+relationship OneToMany {
+    Facturacion to RegistroCompra,
+    Reservas to RegistroCompra,
+    EntradaInvitados to RegistroCompra,
+    EntradaMiembros to RegistroCompra,
+    Reservas to RegistroCompra,
+    CuentaAsociada to Facturacion,
+}
+
+enum TipoIngresod {
+    Espacio_Libre, Reserva, Oficina
+ }
+enum TipoEntradad {
+    INGRESO, SALIDA
+}
+enum TipoGrupod {
+    INTERNO, EXTERNO, PATROCINADO, PUBLICO
+}
+enum TipoConsumod {
+    GRATIS, PAGO
+}
+
+enum EstadoPublicaciond {
+    BORRADOR, EN_REVISION, APROBADO, PUBLICADO, RECHAZADO
+}
+enum Categoriad {
+    GENERAL, DE_GRUPO, CORPORATIVO, INSTITUCIONAL, INTERNO
+}
+enum Impuestod {
+    IVA19, IVA6, IVA0, ICO, IPOCONSUMO8
+}
+enum TipoPersonad {
+    NATURAL, JURIDICA
+}
+enum PeriodicidadFacturaciond {
+    SEMANAL, QUINCENAL, MENSUAL, BIMESTRAL, TRIMESTRAL
+}
+enum TipoEventod {
+    INTERNO, EXTERNO, PATROCINADO, PUBLICO
+}
+enum TipoRecursod {
+	Tiempo, Cantidad
+}
+
+enum Generod {
+	Masculino, Femenino, Otro
+}
+
+enum Beneficiosd {
+	Market, Entrada_Miembro, Espacios_Reserva, Invitados, Landings
+}
+
+enum TipoContenidosd {
+	Negocios, Cultura, Enfoque
+}
+
+enum TipoIniciod {
+	Inicio, Fin
+}
