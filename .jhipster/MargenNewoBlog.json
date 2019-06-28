@@ -1,0 +1,27 @@
+{
+    "name": "MargenNewoBlog",
+    "fields": [
+        {
+            "fieldName": "porcentajeMargen",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "blog",
+            "otherEntityRelationshipName": "margenNewoBlog",
+            "relationshipName": "blog",
+            "otherEntityField": "descripcion"
+        }
+    ],
+    "changelogDate": "20190628144247",
+    "entityTableName": "margen_newo_blog",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

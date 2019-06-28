@@ -1,0 +1,68 @@
+{
+    "name": "EntradaInvitados",
+    "fields": [
+        {
+            "fieldName": "registroFecha",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "tipoEntrada",
+            "fieldType": "TipoEntradad",
+            "fieldValues": "INGRESO,SALIDA"
+        },
+        {
+            "fieldName": "tipoIngreso",
+            "fieldType": "TipoIngresod",
+            "fieldValues": "Espacio_Libre,Reserva,Oficina"
+        },
+        {
+            "fieldName": "tiempoMaximo",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "registroCompra",
+            "otherEntityRelationshipName": "entradaInvitados",
+            "relationshipName": "registroCompra"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "espacioLibre",
+            "otherEntityRelationshipName": "entradaInvitados",
+            "relationshipName": "espacio",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "espaciosReserva",
+            "otherEntityRelationshipName": "entradaInvitados",
+            "relationshipName": "espacioReserva",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "invitados",
+            "otherEntityRelationshipName": "entradaInvitados",
+            "relationshipName": "invitado",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "entradaInvitados",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        }
+    ],
+    "changelogDate": "20190628144216",
+    "entityTableName": "entrada_invitados",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

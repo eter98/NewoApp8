@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="margenNewoBlog">
+            <h2><span jhiTranslate="newoApp8App.margenNewoBlog.detail.title">Margen Newo Blog</span> {{margenNewoBlog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.margenNewoBlog.porcentajeMargen">Porcentaje Margen</span></dt>
+                <dd>
+                    <span>{{margenNewoBlog.porcentajeMargen}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.margenNewoBlog.blog">Blog</span></dt>
+                <dd>
+                    <div *ngIf="margenNewoBlog.blog">
+                        <a [routerLink]="['/blog', margenNewoBlog.blog?.id, 'view']">{{margenNewoBlog.blog?.descripcion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/margen-newo-blog', margenNewoBlog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

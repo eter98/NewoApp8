@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="espaciosReserva">
+            <h2><span jhiTranslate="newoApp8App.espaciosReserva.detail.title">Espacios Reserva</span> {{espaciosReserva.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.facilidades">Facilidades</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.facilidades}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.capacidad">Capacidad</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.capacidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.apertura">Apertura</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.apertura}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.cierre">Cierre</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.cierre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa1Hora">Tarifa 1 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa1Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa2Hora">Tarifa 2 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa2Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa3Hora">Tarifa 3 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa3Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa4Hora">Tarifa 4 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa4Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa5Hora">Tarifa 5 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa5Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa6Hora">Tarifa 6 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa6Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa7Hora">Tarifa 7 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa7Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.tarifa8Hora">Tarifa 8 Hora</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.tarifa8Hora}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + espaciosReserva.impuesto}}">{{espaciosReserva.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.wifi">Wifi</span></dt>
+                <dd>
+                    <span>{{espaciosReserva.wifi}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.video">
+                        <a (click)="openFile(espaciosReserva.videoContentType, espaciosReserva.video)" jhiTranslate="entity.action.open">open</a>
+                        {{espaciosReserva.videoContentType}}, {{byteSize(espaciosReserva.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.imagen1">Imagen 1</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.imagen1">
+                        <a (click)="openFile(espaciosReserva.imagen1ContentType, espaciosReserva.imagen1)">
+                            <img [src]="'data:' + espaciosReserva.imagen1ContentType + ';base64,' + espaciosReserva.imagen1" style="max-width: 100%;" alt="espaciosReserva image"/>
+                        </a>
+                        {{espaciosReserva.imagen1ContentType}}, {{byteSize(espaciosReserva.imagen1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.imagen2">Imagen 2</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.imagen2">
+                        <a (click)="openFile(espaciosReserva.imagen2ContentType, espaciosReserva.imagen2)">
+                            <img [src]="'data:' + espaciosReserva.imagen2ContentType + ';base64,' + espaciosReserva.imagen2" style="max-width: 100%;" alt="espaciosReserva image"/>
+                        </a>
+                        {{espaciosReserva.imagen2ContentType}}, {{byteSize(espaciosReserva.imagen2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.imagen3">Imagen 3</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.imagen3">
+                        <a (click)="openFile(espaciosReserva.imagen3ContentType, espaciosReserva.imagen3)">
+                            <img [src]="'data:' + espaciosReserva.imagen3ContentType + ';base64,' + espaciosReserva.imagen3" style="max-width: 100%;" alt="espaciosReserva image"/>
+                        </a>
+                        {{espaciosReserva.imagen3ContentType}}, {{byteSize(espaciosReserva.imagen3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.imagen4">Imagen 4</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.imagen4">
+                        <a (click)="openFile(espaciosReserva.imagen4ContentType, espaciosReserva.imagen4)">
+                            <img [src]="'data:' + espaciosReserva.imagen4ContentType + ';base64,' + espaciosReserva.imagen4" style="max-width: 100%;" alt="espaciosReserva image"/>
+                        </a>
+                        {{espaciosReserva.imagen4ContentType}}, {{byteSize(espaciosReserva.imagen4)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.imagen5">Imagen 5</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.imagen5">
+                        <a (click)="openFile(espaciosReserva.imagen5ContentType, espaciosReserva.imagen5)">
+                            <img [src]="'data:' + espaciosReserva.imagen5ContentType + ';base64,' + espaciosReserva.imagen5" style="max-width: 100%;" alt="espaciosReserva image"/>
+                        </a>
+                        {{espaciosReserva.imagen5ContentType}}, {{byteSize(espaciosReserva.imagen5)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.imagen6">Imagen 6</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.imagen6">
+                        <a (click)="openFile(espaciosReserva.imagen6ContentType, espaciosReserva.imagen6)">
+                            <img [src]="'data:' + espaciosReserva.imagen6ContentType + ';base64,' + espaciosReserva.imagen6" style="max-width: 100%;" alt="espaciosReserva image"/>
+                        </a>
+                        {{espaciosReserva.imagen6ContentType}}, {{byteSize(espaciosReserva.imagen6)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espaciosReserva.sede">Sede</span></dt>
+                <dd>
+                    <div *ngIf="espaciosReserva.sede">
+                        <a [routerLink]="['/sedes', espaciosReserva.sede?.id, 'view']">{{espaciosReserva.sede?.nombreSede}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/espacios-reserva', espaciosReserva.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

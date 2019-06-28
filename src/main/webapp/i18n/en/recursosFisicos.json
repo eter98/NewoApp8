@@ -1,0 +1,42 @@
+{
+  "newoApp8App": {
+    "recursosFisicos": {
+      "home": {
+        "title": "Recursos Fisicos",
+        "createLabel": "Create a new Recursos Fisicos",
+        "createOrEditLabel": "Create or edit a Recursos Fisicos",
+        "notFound": "No Recursos Fisicos found"
+      },
+      "created": "A new Recursos Fisicos is created with identifier {{ param }}",
+      "updated": "A Recursos Fisicos is updated with identifier {{ param }}",
+      "deleted": "A Recursos Fisicos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Recursos Fisicos {{ id }}?"
+      },
+      "detail": {
+        "title": "Recursos Fisicos"
+      },
+      "recurso": "Recurso",
+      "tipo": "Tipo",
+      "unidadMedida": "Unidad Medida",
+      "valorUnitario": "Valor Unitario",
+      "valor1H": "Valor 1 H",
+      "valor2H": "Valor 2 H",
+      "valor3H": "Valor 3 H",
+      "valor4H": "Valor 4 H",
+      "valor5H": "Valor 5 H",
+      "valor6H": "Valor 6 H",
+      "valor7H": "Valor 7 H",
+      "valor8H": "Valor 8 H",
+      "valor9H": "Valor 9 H",
+      "valor10H": "Valor 10 H",
+      "valor11H": "Valor 11 H",
+      "valor12H": "Valor 12 H",
+      "impuesto": "Impuesto",
+      "foto": "Foto",
+      "video": "Video",
+      "sede": "Sede",
+      "tipoRecurso": "Tipo Recurso"
+    }
+  }
+}

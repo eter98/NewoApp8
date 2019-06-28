@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity UsoRecursoFisico.
+    -->
+    <changeSet id="20190628144241-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="recurso_id"
+                                 baseTableName="uso_recurso_fisico"
+                                 constraintName="fk_uso_recurso_fisico_recurso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recursos_fisicos"/>
+
+        <addForeignKeyConstraint baseColumnNames="miembro_id"
+                                 baseTableName="uso_recurso_fisico"
+                                 constraintName="fk_uso_recurso_fisico_miembro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miembros"/>
+
+    </changeSet>
+</databaseChangeLog>

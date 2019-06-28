@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoPrepagoConsumo">
+            <h2><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.detail.title">Tipo Prepago Consumo</span> {{tipoPrepagoConsumo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tipoPrepagoConsumo.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoPrepagoConsumo.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.valorMinimo">Valor Minimo</span></dt>
+                <dd>
+                    <span>{{tipoPrepagoConsumo.valorMinimo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.valorMaximo">Valor Maximo</span></dt>
+                <dd>
+                    <span>{{tipoPrepagoConsumo.valorMaximo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.tipoBeneficio">Tipo Beneficio</span></dt>
+                <dd>
+                    <div *ngIf="tipoPrepagoConsumo.tipoBeneficio">
+                        <a [routerLink]="['/beneficio', tipoPrepagoConsumo.tipoBeneficio?.id, 'view']">{{tipoPrepagoConsumo.tipoBeneficio?.tipoBeneficio}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-prepago-consumo', tipoPrepagoConsumo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-entrada-miembros-heading" jhiTranslate="newoApp8App.entradaMiembros.home.createOrEditLabel">Create or edit a Entrada Miembros</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.registroFecha" for="field_registroFecha">Registro Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_registroFecha" type="datetime-local" class="form-control" name="registroFecha" formControlName="registroFecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.tipoEntrada" for="field_tipoEntrada">Tipo Entrada</label>
+                    <select class="form-control" name="tipoEntrada" formControlName="tipoEntrada" id="field_tipoEntrada">
+                        <option value="INGRESO">{{'newoApp8App.TipoEntradad.INGRESO' | translate}}</option>
+                        <option value="SALIDA">{{'newoApp8App.TipoEntradad.SALIDA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.tipoIngreso" for="field_tipoIngreso">Tipo Ingreso</label>
+                    <select class="form-control" name="tipoIngreso" formControlName="tipoIngreso" id="field_tipoIngreso">
+                        <option value="Espacio_Libre">{{'newoApp8App.TipoIngresod.Espacio_Libre' | translate}}</option>
+                        <option value="Reserva">{{'newoApp8App.TipoIngresod.Reserva' | translate}}</option>
+                        <option value="Oficina">{{'newoApp8App.TipoIngresod.Oficina' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.tiempoMaximo" for="field_tiempoMaximo">Tiempo Maximo</label>
+                    <input type="checkbox" class="form-control" name="tiempoMaximo" id="field_tiempoMaximo"
+                           formControlName="tiempoMaximo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.espacio" for="field_espacio">Espacio</label>
+                    <select class="form-control" id="field_espacio" name="espacio" formControlName="espacio">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="espacioLibreOption.id === editForm.get('espacio').value?.id ? editForm.get('espacio').value : espacioLibreOption" *ngFor="let espacioLibreOption of espaciolibres; trackBy: trackEspacioLibreById">{{espacioLibreOption.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.entradaMiembros.espacioReserva" for="field_espacioReserva">Espacio Reserva</label>
+                    <select class="form-control" id="field_espacioReserva" name="espacioReserva" formControlName="espacioReserva">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="espaciosReservaOption.id === editForm.get('espacioReserva').value?.id ? editForm.get('espacioReserva').value : espaciosReservaOption" *ngFor="let espaciosReservaOption of espaciosreservas; trackBy: trackEspaciosReservaById">{{espaciosReservaOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

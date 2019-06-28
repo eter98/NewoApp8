@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hostSede">
+            <h2><span jhiTranslate="newoApp8App.hostSede.detail.title">Host Sede</span> {{hostSede.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.hostSede.sede">Sede</span></dt>
+                <dd>
+                    <div *ngIf="hostSede.sede">
+                        <a [routerLink]="['/sedes', hostSede.sede?.id, 'view']">{{hostSede.sede?.nombreSede}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.hostSede.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="hostSede.miembro">
+                        <a [routerLink]="['/miembros', hostSede.miembro?.id, 'view']">{{hostSede.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/host-sede', hostSede.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

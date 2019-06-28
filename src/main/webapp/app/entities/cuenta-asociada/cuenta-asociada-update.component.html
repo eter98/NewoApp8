@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cuenta-asociada-heading" jhiTranslate="newoApp8App.cuentaAsociada.home.createOrEditLabel">Create or edit a Cuenta Asociada</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.identificaciontitular" for="field_identificaciontitular">Identificaciontitular</label>
+                    <input type="text" class="form-control" name="identificaciontitular" id="field_identificaciontitular"
+                           formControlName="identificaciontitular"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.nombreTitular" for="field_nombreTitular">Nombre Titular</label>
+                    <input type="text" class="form-control" name="nombreTitular" id="field_nombreTitular"
+                           formControlName="nombreTitular"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.apellidoTitular" for="field_apellidoTitular">Apellido Titular</label>
+                    <input type="text" class="form-control" name="apellidoTitular" id="field_apellidoTitular"
+                           formControlName="apellidoTitular"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.numeroCuenta" for="field_numeroCuenta">Numero Cuenta</label>
+                    <input type="text" class="form-control" name="numeroCuenta" id="field_numeroCuenta"
+                           formControlName="numeroCuenta"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.tipoCuenta" for="field_tipoCuenta">Tipo Cuenta</label>
+                    <input type="text" class="form-control" name="tipoCuenta" id="field_tipoCuenta"
+                           formControlName="tipoCuenta"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.codigoSeguridad" for="field_codigoSeguridad">Codigo Seguridad</label>
+                    <input type="text" class="form-control" name="codigoSeguridad" id="field_codigoSeguridad"
+                           formControlName="codigoSeguridad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.cuentaAsociada.fechaVencimiento" for="field_fechaVencimiento">Fecha Vencimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaVencimiento" type="text" class="form-control" name="fechaVencimiento" ngbDatepicker  #fechaVencimientoDp="ngbDatepicker" formControlName="fechaVencimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaVencimientoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

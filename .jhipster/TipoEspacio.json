@@ -1,0 +1,19 @@
+{
+    "name": "TipoEspacio",
+    "fields": [
+        {
+            "fieldName": "tipoEspacio",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190628144219",
+    "entityTableName": "tipo_espacio",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

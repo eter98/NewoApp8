@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="consumoMarket">
+            <h2><span jhiTranslate="newoApp8App.consumoMarket.detail.title">Consumo Market</span> {{consumoMarket.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.consumoMarket.totalConsumido">Total Consumido</span></dt>
+                <dd>
+                    <span>{{consumoMarket.totalConsumido}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.consumoMarket.registroFechaInicial">Registro Fecha Inicial</span></dt>
+                <dd>
+                    <span>{{consumoMarket.registroFechaInicial}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.consumoMarket.registroFechaFinal">Registro Fecha Final</span></dt>
+                <dd>
+                    <span>{{consumoMarket.registroFechaFinal}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.consumoMarket.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + consumoMarket.impuesto}}">{{consumoMarket.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.consumoMarket.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="consumoMarket.miembro">
+                        <a [routerLink]="['/miembros', consumoMarket.miembro?.id, 'view']">{{consumoMarket.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/consumo-market', consumoMarket.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

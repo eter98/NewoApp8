@@ -1,0 +1,11 @@
+id;titular_factura;tipo_persona;periodicidad_facturacion;maximo_monto
+1;payment;NATURAL;SEMANAL;10279
+2;Delaware Health Borders;NATURAL;SEMANAL;7241
+3;Belize PCI;JURIDICA;MENSUAL;32209
+4;Planner;NATURAL;MENSUAL;12421
+5;Lead Personal Loan Account Checking Account;NATURAL;SEMANAL;61225
+6;Avon invoice Malta;JURIDICA;MENSUAL;72482
+7;Savings Account;JURIDICA;SEMANAL;47018
+8;override PNG;JURIDICA;QUINCENAL;33231
+9;Virgin Islands, British Borders Intelligent;NATURAL;TRIMESTRAL;17419
+10;Assurance mindshare navigating;NATURAL;BIMESTRAL;58805

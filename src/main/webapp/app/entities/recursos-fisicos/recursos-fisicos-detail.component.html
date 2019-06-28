@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recursosFisicos">
+            <h2><span jhiTranslate="newoApp8App.recursosFisicos.detail.title">Recursos Fisicos</span> {{recursosFisicos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.recurso">Recurso</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.recurso}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.tipo">Tipo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.TipoRecursod.' + recursosFisicos.tipo}}">{{recursosFisicos.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.unidadMedida">Unidad Medida</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.unidadMedida}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valorUnitario">Valor Unitario</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valorUnitario}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor1H">Valor 1 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor1H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor2H">Valor 2 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor2H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor3H">Valor 3 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor3H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor4H">Valor 4 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor4H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor5H">Valor 5 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor5H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor6H">Valor 6 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor6H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor7H">Valor 7 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor7H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor8H">Valor 8 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor8H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor9H">Valor 9 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor9H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor10H">Valor 10 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor10H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor11H">Valor 11 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor11H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.valor12H">Valor 12 H</span></dt>
+                <dd>
+                    <span>{{recursosFisicos.valor12H}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + recursosFisicos.impuesto}}">{{recursosFisicos.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="recursosFisicos.foto">
+                        <a (click)="openFile(recursosFisicos.fotoContentType, recursosFisicos.foto)">
+                            <img [src]="'data:' + recursosFisicos.fotoContentType + ';base64,' + recursosFisicos.foto" style="max-width: 100%;" alt="recursosFisicos image"/>
+                        </a>
+                        {{recursosFisicos.fotoContentType}}, {{byteSize(recursosFisicos.foto)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="recursosFisicos.video">
+                        <a (click)="openFile(recursosFisicos.videoContentType, recursosFisicos.video)" jhiTranslate="entity.action.open">open</a>
+                        {{recursosFisicos.videoContentType}}, {{byteSize(recursosFisicos.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.sede">Sede</span></dt>
+                <dd>
+                    <div *ngIf="recursosFisicos.sede">
+                        <a [routerLink]="['/sedes', recursosFisicos.sede?.id, 'view']">{{recursosFisicos.sede?.nombreSede}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.recursosFisicos.tipoRecurso">Tipo Recurso</span></dt>
+                <dd>
+                    <div *ngIf="recursosFisicos.tipoRecurso">
+                        <a [routerLink]="['/tipo-recurso', recursosFisicos.tipoRecurso?.id, 'view']">{{recursosFisicos.tipoRecurso?.nombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/recursos-fisicos', recursosFisicos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

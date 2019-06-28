@@ -1,0 +1,99 @@
+{
+    "name": "Grupos",
+    "fields": [
+        {
+            "fieldName": "nombreGrupo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twiter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedIn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoGrupo",
+            "fieldType": "TipoGrupod",
+            "fieldValues": "INTERNO,EXTERNO,PATROCINADO,PUBLICO"
+        },
+        {
+            "fieldName": "tipoConsumo",
+            "fieldType": "TipoConsumod",
+            "fieldValues": "GRATIS,PAGO"
+        },
+        {
+            "fieldName": "valorSuscripcion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "impuesto",
+            "fieldType": "Impuestod",
+            "fieldValues": "IVA19,IVA6,IVA0,ICO,IPOCONSUMO8"
+        },
+        {
+            "fieldName": "reglasGrupo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "audio",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "video",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "foto1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "banner",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoriaContenidos",
+            "otherEntityRelationshipName": "grupos",
+            "relationshipName": "categoriaGrupo",
+            "otherEntityField": "categoria"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evento",
+            "otherEntityRelationshipName": "grupos",
+            "relationshipName": "evento",
+            "otherEntityField": "nombreEvento"
+        }
+    ],
+    "changelogDate": "20190628144238",
+    "entityTableName": "grupos",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

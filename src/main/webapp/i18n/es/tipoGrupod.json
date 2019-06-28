@@ -1,0 +1,11 @@
+{
+  "newoApp8App": {
+    "TipoGrupod": {
+      "null": "",
+      "INTERNO": "INTERNO",
+      "EXTERNO": "EXTERNO",
+      "PATROCINADO": "PATROCINADO",
+      "PUBLICO": "PUBLICO"
+    }
+  }
+}

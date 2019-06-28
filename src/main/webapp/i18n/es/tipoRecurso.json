@@ -1,0 +1,23 @@
+{
+  "newoApp8App": {
+    "tipoRecurso": {
+      "home": {
+        "title": "Tipo Recursos",
+        "createLabel": "Crear nuevo Tipo Recurso",
+        "createOrEditLabel": "Crear o editar Tipo Recurso",
+        "notFound": "No Tipo Recurso found"
+      },
+      "created": "Un nuevo Tipo Recurso ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Recurso ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Recurso ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Recurso {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Recurso"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion"
+    }
+  }
+}

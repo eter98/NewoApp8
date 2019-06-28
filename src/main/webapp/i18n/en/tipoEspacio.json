@@ -1,0 +1,22 @@
+{
+  "newoApp8App": {
+    "tipoEspacio": {
+      "home": {
+        "title": "Tipo Espacios",
+        "createLabel": "Create a new Tipo Espacio",
+        "createOrEditLabel": "Create or edit a Tipo Espacio",
+        "notFound": "No Tipo Espacio found"
+      },
+      "created": "A new Tipo Espacio is created with identifier {{ param }}",
+      "updated": "A Tipo Espacio is updated with identifier {{ param }}",
+      "deleted": "A Tipo Espacio is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Espacio {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Espacio"
+      },
+      "tipoEspacio": "Tipo Espacio"
+    }
+  }
+}

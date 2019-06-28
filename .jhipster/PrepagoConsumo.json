@@ -1,0 +1,46 @@
+{
+    "name": "PrepagoConsumo",
+    "fields": [
+        {
+            "fieldName": "aporte",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "saldoActual",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaRegistro",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fechaSaldoActual",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "prepagoConsumo",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tipoPrepagoConsumo",
+            "otherEntityRelationshipName": "prepagoConsumo",
+            "relationshipName": "tipoPrepago",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20190628144244",
+    "entityTableName": "prepago_consumo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

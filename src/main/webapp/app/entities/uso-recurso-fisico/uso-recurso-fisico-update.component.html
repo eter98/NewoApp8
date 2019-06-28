@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-uso-recurso-fisico-heading" jhiTranslate="newoApp8App.usoRecursoFisico.home.createOrEditLabel">Create or edit a Uso Recurso Fisico</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.usoRecursoFisico.registroFechaInicio" for="field_registroFechaInicio">Registro Fecha Inicio</label>
+                    <div class="d-flex">
+                        <input id="field_registroFechaInicio" type="datetime-local" class="form-control" name="registroFechaInicio" formControlName="registroFechaInicio" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.usoRecursoFisico.registroFechaFinal" for="field_registroFechaFinal">Registro Fecha Final</label>
+                    <div class="d-flex">
+                        <input id="field_registroFechaFinal" type="datetime-local" class="form-control" name="registroFechaFinal" formControlName="registroFechaFinal" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.usoRecursoFisico.tipoRegistro" for="field_tipoRegistro">Tipo Registro</label>
+                    <select class="form-control" name="tipoRegistro" formControlName="tipoRegistro" id="field_tipoRegistro">
+                        <option value="Inicio">{{'newoApp8App.TipoIniciod.Inicio' | translate}}</option>
+                        <option value="Fin">{{'newoApp8App.TipoIniciod.Fin' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.usoRecursoFisico.recurso" for="field_recurso">Recurso</label>
+                    <select class="form-control" id="field_recurso" name="recurso" formControlName="recurso">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recursosFisicosOption.id === editForm.get('recurso').value?.id ? editForm.get('recurso').value : recursosFisicosOption" *ngFor="let recursosFisicosOption of recursosfisicos; trackBy: trackRecursosFisicosById">{{recursosFisicosOption.recurso}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.usoRecursoFisico.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

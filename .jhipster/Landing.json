@@ -1,0 +1,53 @@
+{
+    "name": "Landing",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefonoNegocio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroPuestos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tarifa",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fotografia",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "mpuesto",
+            "fieldType": "Impuestod",
+            "fieldValues": "IVA19,IVA6,IVA0,ICO,IPOCONSUMO8"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sedes",
+            "otherEntityRelationshipName": "landing",
+            "relationshipName": "sede",
+            "otherEntityField": "nombreSede"
+        }
+    ],
+    "changelogDate": "20190628144231",
+    "entityTableName": "landing",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="landing">
+            <h2><span jhiTranslate="newoApp8App.landing.detail.title">Landing</span> {{landing.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.landing.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{landing.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{landing.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.telefonoNegocio">Telefono Negocio</span></dt>
+                <dd>
+                    <span>{{landing.telefonoNegocio}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.numeroPuestos">Numero Puestos</span></dt>
+                <dd>
+                    <span>{{landing.numeroPuestos}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.tarifa">Tarifa</span></dt>
+                <dd>
+                    <span>{{landing.tarifa}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.fotografia">Fotografia</span></dt>
+                <dd>
+                    <div *ngIf="landing.fotografia">
+                        <a (click)="openFile(landing.fotografiaContentType, landing.fotografia)">
+                            <img [src]="'data:' + landing.fotografiaContentType + ';base64,' + landing.fotografia" style="max-width: 100%;" alt="landing image"/>
+                        </a>
+                        {{landing.fotografiaContentType}}, {{byteSize(landing.fotografia)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.mpuesto">Mpuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + landing.mpuesto}}">{{landing.mpuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.landing.sede">Sede</span></dt>
+                <dd>
+                    <div *ngIf="landing.sede">
+                        <a [routerLink]="['/sedes', landing.sede?.id, 'view']">{{landing.sede?.nombreSede}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/landing', landing.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

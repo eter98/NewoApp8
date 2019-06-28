@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-registro-compra-heading" jhiTranslate="newoApp8App.registroCompra.home.createOrEditLabel">Create or edit a Registro Compra</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.registroCompra.consumoMarket" for="field_consumoMarket">Consumo Market</label>
+                    <input type="checkbox" class="form-control" name="consumoMarket" id="field_consumoMarket"
+                           formControlName="consumoMarket"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.registroCompra.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.registroCompra.facturacion" for="field_facturacion">Facturacion</label>
+                    <select class="form-control" id="field_facturacion" name="facturacion" formControlName="facturacion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facturacionOption.id === editForm.get('facturacion').value?.id ? editForm.get('facturacion').value : facturacionOption" *ngFor="let facturacionOption of facturacions; trackBy: trackFacturacionById">{{facturacionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.registroCompra.reservas" for="field_reservas">Reservas</label>
+                    <select class="form-control" id="field_reservas" name="reservas" formControlName="reservas">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reservasOption.id === editForm.get('reservas').value?.id ? editForm.get('reservas').value : reservasOption" *ngFor="let reservasOption of reservas; trackBy: trackReservasById">{{reservasOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.registroCompra.entradaInvitados" for="field_entradaInvitados">Entrada Invitados</label>
+                    <select class="form-control" id="field_entradaInvitados" name="entradaInvitados" formControlName="entradaInvitados">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="entradaInvitadosOption.id === editForm.get('entradaInvitados').value?.id ? editForm.get('entradaInvitados').value : entradaInvitadosOption" *ngFor="let entradaInvitadosOption of entradainvitados; trackBy: trackEntradaInvitadosById">{{entradaInvitadosOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.registroCompra.entradaMiembros" for="field_entradaMiembros">Entrada Miembros</label>
+                    <select class="form-control" id="field_entradaMiembros" name="entradaMiembros" formControlName="entradaMiembros">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="entradaMiembrosOption.id === editForm.get('entradaMiembros').value?.id ? editForm.get('entradaMiembros').value : entradaMiembrosOption" *ngFor="let entradaMiembrosOption of entradamiembros; trackBy: trackEntradaMiembrosById">{{entradaMiembrosOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

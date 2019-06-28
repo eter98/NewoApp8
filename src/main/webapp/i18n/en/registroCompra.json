@@ -1,0 +1,27 @@
+{
+  "newoApp8App": {
+    "registroCompra": {
+      "home": {
+        "title": "Registro Compras",
+        "createLabel": "Create a new Registro Compra",
+        "createOrEditLabel": "Create or edit a Registro Compra",
+        "notFound": "No Registro Compra found"
+      },
+      "created": "A new Registro Compra is created with identifier {{ param }}",
+      "updated": "A Registro Compra is updated with identifier {{ param }}",
+      "deleted": "A Registro Compra is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Registro Compra {{ id }}?"
+      },
+      "detail": {
+        "title": "Registro Compra"
+      },
+      "consumoMarket": "Consumo Market",
+      "miembro": "Miembro",
+      "facturacion": "Facturacion",
+      "reservas": "Reservas",
+      "entradaInvitados": "Entrada Invitados",
+      "entradaMiembros": "Entrada Miembros"
+    }
+  }
+}

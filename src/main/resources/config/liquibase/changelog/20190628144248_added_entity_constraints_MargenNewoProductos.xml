@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity MargenNewoProductos.
+    -->
+    <changeSet id="20190628144248-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="producto_id"
+                                 baseTableName="margen_newo_productos"
+                                 constraintName="fk_margen_newo_productos_producto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="productos_servicios"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,12 @@
+{
+  "newoApp8App": {
+    "EstadoPublicaciond": {
+      "null": "",
+      "BORRADOR": "BORRADOR",
+      "EN_REVISION": "EN_REVISION",
+      "APROBADO": "APROBADO",
+      "PUBLICADO": "PUBLICADO",
+      "RECHAZADO": "RECHAZADO"
+    }
+  }
+}

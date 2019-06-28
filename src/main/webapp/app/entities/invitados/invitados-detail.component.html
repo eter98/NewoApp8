@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invitados">
+            <h2><span jhiTranslate="newoApp8App.invitados.detail.title">Invitados</span> {{invitados.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.invitados.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{invitados.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.invitados.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{invitados.apellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.invitados.tipoDocumento">Tipo Documento</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.TipoDocumentod.' + invitados.tipoDocumento}}">{{invitados.tipoDocumento}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.invitados.identificacion">Identificacion</span></dt>
+                <dd>
+                    <span>{{invitados.identificacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.invitados.correo">Correo</span></dt>
+                <dd>
+                    <span>{{invitados.correo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.invitados.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{invitados.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.invitados.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="invitados.miembro">
+                        <a [routerLink]="['/miembros', invitados.miembro?.id, 'view']">{{invitados.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invitados', invitados.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

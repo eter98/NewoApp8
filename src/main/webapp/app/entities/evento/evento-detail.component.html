@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="evento">
+            <h2><span jhiTranslate="newoApp8App.evento.detail.title">Evento</span> {{evento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.evento.nombreEvento">Nombre Evento</span></dt>
+                <dd>
+                    <span>{{evento.nombreEvento}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{evento.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.audio">Audio</span></dt>
+                <dd>
+                    <div *ngIf="evento.audio">
+                        <a (click)="openFile(evento.audioContentType, evento.audio)" jhiTranslate="entity.action.open">open</a>
+                        {{evento.audioContentType}}, {{byteSize(evento.audio)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="evento.video">
+                        <a (click)="openFile(evento.videoContentType, evento.video)" jhiTranslate="entity.action.open">open</a>
+                        {{evento.videoContentType}}, {{byteSize(evento.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.foto1">Foto 1</span></dt>
+                <dd>
+                    <div *ngIf="evento.foto1">
+                        <a (click)="openFile(evento.foto1ContentType, evento.foto1)">
+                            <img [src]="'data:' + evento.foto1ContentType + ';base64,' + evento.foto1" style="max-width: 100%;" alt="evento image"/>
+                        </a>
+                        {{evento.foto1ContentType}}, {{byteSize(evento.foto1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.foto2">Foto 2</span></dt>
+                <dd>
+                    <div *ngIf="evento.foto2">
+                        <a (click)="openFile(evento.foto2ContentType, evento.foto2)">
+                            <img [src]="'data:' + evento.foto2ContentType + ';base64,' + evento.foto2" style="max-width: 100%;" alt="evento image"/>
+                        </a>
+                        {{evento.foto2ContentType}}, {{byteSize(evento.foto2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.banner">Banner</span></dt>
+                <dd>
+                    <div *ngIf="evento.banner">
+                        <a (click)="openFile(evento.bannerContentType, evento.banner)">
+                            <img [src]="'data:' + evento.bannerContentType + ';base64,' + evento.banner" style="max-width: 100%;" alt="evento image"/>
+                        </a>
+                        {{evento.bannerContentType}}, {{byteSize(evento.banner)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.tipoConsumo">Tipo Consumo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.TipoConsumod.' + evento.tipoConsumo}}">{{evento.tipoConsumo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.valor">Valor</span></dt>
+                <dd>
+                    <span>{{evento.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + evento.impuesto}}">{{evento.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.tipoEvento">Tipo Evento</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Categoriad.' + evento.tipoEvento}}">{{evento.tipoEvento}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.categoriaEvento">Categoria Evento</span></dt>
+                <dd>
+                    <div *ngIf="evento.categoriaEvento">
+                        <a [routerLink]="['/categoria-contenidos', evento.categoriaEvento?.id, 'view']">{{evento.categoriaEvento?.categoria}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.grupos">Grupos</span></dt>
+                <dd>
+                    <div *ngIf="evento.grupos">
+                        <a [routerLink]="['/grupos', evento.grupos?.id, 'view']">{{evento.grupos?.nombreGrupos}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.evento.miebro">Miebro</span></dt>
+                <dd>
+                    <div *ngIf="evento.miebro">
+                        <a [routerLink]="['/miembros', evento.miebro?.id, 'view']">{{evento.miebro?.identificacion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/evento', evento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

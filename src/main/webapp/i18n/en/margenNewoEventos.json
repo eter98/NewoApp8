@@ -1,0 +1,23 @@
+{
+  "newoApp8App": {
+    "margenNewoEventos": {
+      "home": {
+        "title": "Margen Newo Eventos",
+        "createLabel": "Create a new Margen Newo Eventos",
+        "createOrEditLabel": "Create or edit a Margen Newo Eventos",
+        "notFound": "No Margen Newo Eventos found"
+      },
+      "created": "A new Margen Newo Eventos is created with identifier {{ param }}",
+      "updated": "A Margen Newo Eventos is updated with identifier {{ param }}",
+      "deleted": "A Margen Newo Eventos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Margen Newo Eventos {{ id }}?"
+      },
+      "detail": {
+        "title": "Margen Newo Eventos"
+      },
+      "porcentajeMargen": "Porcentaje Margen",
+      "evento": "Evento"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.tipoPrepagoConsumo.home.title">Tipo Prepago Consumos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tipo-prepago-consumo" [routerLink]="['/tipo-prepago-consumo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.tipoPrepagoConsumo.home.createLabel">
+            Create new Tipo Prepago Consumo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="tipoPrepagoConsumos?.length === 0">
+        <span jhiTranslate="newoApp8App.tipoPrepagoConsumo.home.notFound">No tipoPrepagoConsumos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="tipoPrepagoConsumos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.nombre">Nombre</span></th>
+            <th><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.descripcion">Descripcion</span></th>
+            <th><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.valorMinimo">Valor Minimo</span></th>
+            <th><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.valorMaximo">Valor Maximo</span></th>
+            <th><span jhiTranslate="newoApp8App.tipoPrepagoConsumo.tipoBeneficio">Tipo Beneficio</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tipoPrepagoConsumo of tipoPrepagoConsumos ;trackBy: trackId">
+                <td><a [routerLink]="['/tipo-prepago-consumo', tipoPrepagoConsumo.id, 'view' ]">{{tipoPrepagoConsumo.id}}</a></td>
+                <td>{{tipoPrepagoConsumo.nombre}}</td>
+                <td>{{tipoPrepagoConsumo.descripcion}}</td>
+                <td>{{tipoPrepagoConsumo.valorMinimo}}</td>
+                <td>{{tipoPrepagoConsumo.valorMaximo}}</td>
+                <td>
+                    <div *ngIf="tipoPrepagoConsumo.tipoBeneficio">
+                        <a [routerLink]="['../beneficio', tipoPrepagoConsumo.tipoBeneficio?.id, 'view' ]" >{{tipoPrepagoConsumo.tipoBeneficio?.tipoBeneficio}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/tipo-prepago-consumo', tipoPrepagoConsumo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tipo-prepago-consumo', tipoPrepagoConsumo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'tipo-prepago-consumo', { outlets: { popup: tipoPrepagoConsumo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

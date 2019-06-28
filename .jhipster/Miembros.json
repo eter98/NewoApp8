@@ -1,0 +1,88 @@
+{
+    "name": "Miembros",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nacionalidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoDocumento",
+            "fieldType": "TipoDocumentod",
+            "fieldValues": "Cedula,Cedula_Extranjeria,Pasaporte,Otro"
+        },
+        {
+            "fieldName": "identificacion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaNacimiento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fechaRegistro",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "genero",
+            "fieldType": "Generod",
+            "fieldValues": "Masculino,Femenino,Otro"
+        },
+        {
+            "fieldName": "correoElectronico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "celular",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "derechosDeCompra",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "accesoIlimitado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "aliado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "host",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "miembros",
+            "relationshipName": "miembro",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sedes",
+            "otherEntityRelationshipName": "miembros",
+            "relationshipName": "sede",
+            "otherEntityField": "nombreSede"
+        }
+    ],
+    "changelogDate": "20190628144212",
+    "entityTableName": "miembros",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

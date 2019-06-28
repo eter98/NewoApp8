@@ -1,0 +1,236 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-espacios-reserva-heading" jhiTranslate="newoApp8App.espaciosReserva.home.createOrEditLabel">Create or edit a Espacios Reserva</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.facilidades" for="field_facilidades">Facilidades</label>
+                    <input type="text" class="form-control" name="facilidades" id="field_facilidades"
+                           formControlName="facilidades"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.capacidad" for="field_capacidad">Capacidad</label>
+                    <input type="number" class="form-control" name="capacidad" id="field_capacidad"
+                           formControlName="capacidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.apertura" for="field_apertura">Apertura</label>
+                    <input type="text" class="form-control" name="apertura" id="field_apertura"
+                           formControlName="apertura"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.cierre" for="field_cierre">Cierre</label>
+                    <input type="text" class="form-control" name="cierre" id="field_cierre"
+                           formControlName="cierre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa1Hora" for="field_tarifa1Hora">Tarifa 1 Hora</label>
+                    <input type="number" class="form-control" name="tarifa1Hora" id="field_tarifa1Hora"
+                           formControlName="tarifa1Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa2Hora" for="field_tarifa2Hora">Tarifa 2 Hora</label>
+                    <input type="number" class="form-control" name="tarifa2Hora" id="field_tarifa2Hora"
+                           formControlName="tarifa2Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa3Hora" for="field_tarifa3Hora">Tarifa 3 Hora</label>
+                    <input type="number" class="form-control" name="tarifa3Hora" id="field_tarifa3Hora"
+                           formControlName="tarifa3Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa4Hora" for="field_tarifa4Hora">Tarifa 4 Hora</label>
+                    <input type="number" class="form-control" name="tarifa4Hora" id="field_tarifa4Hora"
+                           formControlName="tarifa4Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa5Hora" for="field_tarifa5Hora">Tarifa 5 Hora</label>
+                    <input type="number" class="form-control" name="tarifa5Hora" id="field_tarifa5Hora"
+                           formControlName="tarifa5Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa6Hora" for="field_tarifa6Hora">Tarifa 6 Hora</label>
+                    <input type="number" class="form-control" name="tarifa6Hora" id="field_tarifa6Hora"
+                           formControlName="tarifa6Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa7Hora" for="field_tarifa7Hora">Tarifa 7 Hora</label>
+                    <input type="number" class="form-control" name="tarifa7Hora" id="field_tarifa7Hora"
+                           formControlName="tarifa7Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.tarifa8Hora" for="field_tarifa8Hora">Tarifa 8 Hora</label>
+                    <input type="number" class="form-control" name="tarifa8Hora" id="field_tarifa8Hora"
+                           formControlName="tarifa8Hora"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.impuesto" for="field_impuesto">Impuesto</label>
+                    <select class="form-control" name="impuesto" formControlName="impuesto" id="field_impuesto">
+                        <option value="IVA19">{{'newoApp8App.Impuestod.IVA19' | translate}}</option>
+                        <option value="IVA6">{{'newoApp8App.Impuestod.IVA6' | translate}}</option>
+                        <option value="IVA0">{{'newoApp8App.Impuestod.IVA0' | translate}}</option>
+                        <option value="ICO">{{'newoApp8App.Impuestod.ICO' | translate}}</option>
+                        <option value="IPOCONSUMO8">{{'newoApp8App.Impuestod.IPOCONSUMO8' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.wifi" for="field_wifi">Wifi</label>
+                    <input type="text" class="form-control" name="wifi" id="field_wifi"
+                           formControlName="wifi"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.video" for="field_video">Video</label>
+                    <div>
+                        <div *ngIf="editForm.get('video').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('videoContentType').value, editForm.get('video').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('videoContentType').value}}, {{byteSize(editForm.get('video').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({video: null});editForm.patchValue({videoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_video" (change)="setFileData($event, 'video', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="video" id="field_video"
+                           formControlName="video"/>
+                    <input type="hidden" class="form-control" name="videoContentType" id="field_videoContentType"
+                           formControlName="videoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.imagen1" for="field_imagen1">Imagen 1</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen1ContentType').value + ';base64,' + editForm.get('imagen1').value" style="max-height: 100px;" *ngIf="editForm.get('imagen1').value" alt="espaciosReserva image"/>
+                        <div *ngIf="editForm.get('imagen1').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen1ContentType').value}}, {{byteSize(editForm.get('imagen1').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen1', 'imagen1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen1" (change)="setFileData($event, 'imagen1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen1" id="field_imagen1"
+                           formControlName="imagen1"/>
+                    <input type="hidden" class="form-control" name="imagen1ContentType" id="field_imagen1ContentType"
+                           formControlName="imagen1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.imagen2" for="field_imagen2">Imagen 2</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen2ContentType').value + ';base64,' + editForm.get('imagen2').value" style="max-height: 100px;" *ngIf="editForm.get('imagen2').value" alt="espaciosReserva image"/>
+                        <div *ngIf="editForm.get('imagen2').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen2ContentType').value}}, {{byteSize(editForm.get('imagen2').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen2', 'imagen2ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen2" (change)="setFileData($event, 'imagen2', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen2" id="field_imagen2"
+                           formControlName="imagen2"/>
+                    <input type="hidden" class="form-control" name="imagen2ContentType" id="field_imagen2ContentType"
+                           formControlName="imagen2ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.imagen3" for="field_imagen3">Imagen 3</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen3ContentType').value + ';base64,' + editForm.get('imagen3').value" style="max-height: 100px;" *ngIf="editForm.get('imagen3').value" alt="espaciosReserva image"/>
+                        <div *ngIf="editForm.get('imagen3').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen3ContentType').value}}, {{byteSize(editForm.get('imagen3').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen3', 'imagen3ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen3" (change)="setFileData($event, 'imagen3', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen3" id="field_imagen3"
+                           formControlName="imagen3"/>
+                    <input type="hidden" class="form-control" name="imagen3ContentType" id="field_imagen3ContentType"
+                           formControlName="imagen3ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.imagen4" for="field_imagen4">Imagen 4</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen4ContentType').value + ';base64,' + editForm.get('imagen4').value" style="max-height: 100px;" *ngIf="editForm.get('imagen4').value" alt="espaciosReserva image"/>
+                        <div *ngIf="editForm.get('imagen4').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen4ContentType').value}}, {{byteSize(editForm.get('imagen4').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen4', 'imagen4ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen4" (change)="setFileData($event, 'imagen4', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen4" id="field_imagen4"
+                           formControlName="imagen4"/>
+                    <input type="hidden" class="form-control" name="imagen4ContentType" id="field_imagen4ContentType"
+                           formControlName="imagen4ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.imagen5" for="field_imagen5">Imagen 5</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen5ContentType').value + ';base64,' + editForm.get('imagen5').value" style="max-height: 100px;" *ngIf="editForm.get('imagen5').value" alt="espaciosReserva image"/>
+                        <div *ngIf="editForm.get('imagen5').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen5ContentType').value}}, {{byteSize(editForm.get('imagen5').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen5', 'imagen5ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen5" (change)="setFileData($event, 'imagen5', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen5" id="field_imagen5"
+                           formControlName="imagen5"/>
+                    <input type="hidden" class="form-control" name="imagen5ContentType" id="field_imagen5ContentType"
+                           formControlName="imagen5ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.imagen6" for="field_imagen6">Imagen 6</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen6ContentType').value + ';base64,' + editForm.get('imagen6').value" style="max-height: 100px;" *ngIf="editForm.get('imagen6').value" alt="espaciosReserva image"/>
+                        <div *ngIf="editForm.get('imagen6').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen6ContentType').value}}, {{byteSize(editForm.get('imagen6').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen6', 'imagen6ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen6" (change)="setFileData($event, 'imagen6', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen6" id="field_imagen6"
+                           formControlName="imagen6"/>
+                    <input type="hidden" class="form-control" name="imagen6ContentType" id="field_imagen6ContentType"
+                           formControlName="imagen6ContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.espaciosReserva.sede" for="field_sede">Sede</label>
+                    <select class="form-control" id="field_sede" name="sede" formControlName="sede">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sedesOption.id === editForm.get('sede').value?.id ? editForm.get('sede').value : sedesOption" *ngFor="let sedesOption of sedes; trackBy: trackSedesById">{{sedesOption.nombreSede}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

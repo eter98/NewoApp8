@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cuentaAsociada">
+            <h2><span jhiTranslate="newoApp8App.cuentaAsociada.detail.title">Cuenta Asociada</span> {{cuentaAsociada.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.identificaciontitular">Identificaciontitular</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.identificaciontitular}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.nombreTitular">Nombre Titular</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.nombreTitular}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.apellidoTitular">Apellido Titular</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.apellidoTitular}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.numeroCuenta">Numero Cuenta</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.numeroCuenta}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.tipoCuenta">Tipo Cuenta</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.tipoCuenta}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.codigoSeguridad">Codigo Seguridad</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.codigoSeguridad}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.cuentaAsociada.fechaVencimiento">Fecha Vencimiento</span></dt>
+                <dd>
+                    <span>{{cuentaAsociada.fechaVencimiento}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cuenta-asociada', cuentaAsociada.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

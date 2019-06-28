@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="usoRecursoFisico">
+            <h2><span jhiTranslate="newoApp8App.usoRecursoFisico.detail.title">Uso Recurso Fisico</span> {{usoRecursoFisico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.usoRecursoFisico.registroFechaInicio">Registro Fecha Inicio</span></dt>
+                <dd>
+                    <span>{{usoRecursoFisico.registroFechaInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.usoRecursoFisico.registroFechaFinal">Registro Fecha Final</span></dt>
+                <dd>
+                    <span>{{usoRecursoFisico.registroFechaFinal}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.usoRecursoFisico.tipoRegistro">Tipo Registro</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.TipoIniciod.' + usoRecursoFisico.tipoRegistro}}">{{usoRecursoFisico.tipoRegistro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.usoRecursoFisico.recurso">Recurso</span></dt>
+                <dd>
+                    <div *ngIf="usoRecursoFisico.recurso">
+                        <a [routerLink]="['/recursos-fisicos', usoRecursoFisico.recurso?.id, 'view']">{{usoRecursoFisico.recurso?.recurso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.usoRecursoFisico.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="usoRecursoFisico.miembro">
+                        <a [routerLink]="['/miembros', usoRecursoFisico.miembro?.id, 'view']">{{usoRecursoFisico.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/uso-recurso-fisico', usoRecursoFisico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

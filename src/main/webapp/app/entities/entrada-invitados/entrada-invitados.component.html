@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.entradaInvitados.home.title">Entrada Invitados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-entrada-invitados" [routerLink]="['/entrada-invitados/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.entradaInvitados.home.createLabel">
+            Create new Entrada Invitados
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="entradaInvitados?.length === 0">
+        <span jhiTranslate="newoApp8App.entradaInvitados.home.notFound">No entradaInvitados found</span>
+    </div>
+    <div class="table-responsive" *ngIf="entradaInvitados?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.registroFecha">Registro Fecha</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.tipoEntrada">Tipo Entrada</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.tipoIngreso">Tipo Ingreso</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.tiempoMaximo">Tiempo Maximo</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.espacio">Espacio</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.espacioReserva">Espacio Reserva</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.invitado">Invitado</span></th>
+            <th><span jhiTranslate="newoApp8App.entradaInvitados.miembro">Miembro</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let entradaInvitados of entradaInvitados ;trackBy: trackId">
+                <td><a [routerLink]="['/entrada-invitados', entradaInvitados.id, 'view' ]">{{entradaInvitados.id}}</a></td>
+                <td>{{entradaInvitados.registroFecha | date:'medium'}}</td>
+                <td jhiTranslate="{{'newoApp8App.TipoEntradad.' + entradaInvitados.tipoEntrada}}">{{entradaInvitados.tipoEntrada}}</td>
+                <td jhiTranslate="{{'newoApp8App.TipoIngresod.' + entradaInvitados.tipoIngreso}}">{{entradaInvitados.tipoIngreso}}</td>
+                <td>{{entradaInvitados.tiempoMaximo}}</td>
+                <td>
+                    <div *ngIf="entradaInvitados.espacio">
+                        <a [routerLink]="['../espacio-libre', entradaInvitados.espacio?.id, 'view' ]" >{{entradaInvitados.espacio?.nombre}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="entradaInvitados.espacioReserva">
+                        <a [routerLink]="['../espacios-reserva', entradaInvitados.espacioReserva?.id, 'view' ]" >{{entradaInvitados.espacioReserva?.nombre}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="entradaInvitados.invitado">
+                        <a [routerLink]="['../invitados', entradaInvitados.invitado?.id, 'view' ]" >{{entradaInvitados.invitado?.identificacion}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="entradaInvitados.miembro">
+                        <a [routerLink]="['../miembros', entradaInvitados.miembro?.id, 'view' ]" >{{entradaInvitados.miembro?.identificacion}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/entrada-invitados', entradaInvitados.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/entrada-invitados', entradaInvitados.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'entrada-invitados', { outlets: { popup: entradaInvitados.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity EntradaInvitados.
+    -->
+    <changeSet id="20190628144216-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="espacio_id"
+                                 baseTableName="entrada_invitados"
+                                 constraintName="fk_entrada_invitados_espacio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="espacio_libre"/>
+
+        <addForeignKeyConstraint baseColumnNames="espacio_reserva_id"
+                                 baseTableName="entrada_invitados"
+                                 constraintName="fk_entrada_invitados_espacio_reserva_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="espacios_reserva"/>
+
+        <addForeignKeyConstraint baseColumnNames="invitado_id"
+                                 baseTableName="entrada_invitados"
+                                 constraintName="fk_entrada_invitados_invitado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="invitados"/>
+
+        <addForeignKeyConstraint baseColumnNames="miembro_id"
+                                 baseTableName="entrada_invitados"
+                                 constraintName="fk_entrada_invitados_miembro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miembros"/>
+
+    </changeSet>
+</databaseChangeLog>

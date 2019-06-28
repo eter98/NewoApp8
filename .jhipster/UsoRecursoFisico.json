@@ -1,0 +1,43 @@
+{
+    "name": "UsoRecursoFisico",
+    "fields": [
+        {
+            "fieldName": "registroFechaInicio",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "registroFechaFinal",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "tipoRegistro",
+            "fieldType": "TipoIniciod",
+            "fieldValues": "Inicio,Fin"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "recursosFisicos",
+            "otherEntityRelationshipName": "usoRecursoFisico",
+            "relationshipName": "recurso",
+            "otherEntityField": "recurso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "usoRecursoFisico",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        }
+    ],
+    "changelogDate": "20190628144241",
+    "entityTableName": "uso_recurso_fisico",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

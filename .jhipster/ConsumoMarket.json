@@ -1,0 +1,40 @@
+{
+    "name": "ConsumoMarket",
+    "fields": [
+        {
+            "fieldName": "totalConsumido",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "registroFechaInicial",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "registroFechaFinal",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "impuesto",
+            "fieldType": "Impuestod",
+            "fieldValues": "IVA19,IVA6,IVA0,ICO,IPOCONSUMO8"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "consumoMarket",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        }
+    ],
+    "changelogDate": "20190628144243",
+    "entityTableName": "consumo_market",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

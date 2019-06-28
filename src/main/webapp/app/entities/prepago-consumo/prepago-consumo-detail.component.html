@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prepagoConsumo">
+            <h2><span jhiTranslate="newoApp8App.prepagoConsumo.detail.title">Prepago Consumo</span> {{prepagoConsumo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.prepagoConsumo.aporte">Aporte</span></dt>
+                <dd>
+                    <span>{{prepagoConsumo.aporte}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.prepagoConsumo.saldoActual">Saldo Actual</span></dt>
+                <dd>
+                    <span>{{prepagoConsumo.saldoActual}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.prepagoConsumo.fechaRegistro">Fecha Registro</span></dt>
+                <dd>
+                    <span>{{prepagoConsumo.fechaRegistro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.prepagoConsumo.fechaSaldoActual">Fecha Saldo Actual</span></dt>
+                <dd>
+                    <span>{{prepagoConsumo.fechaSaldoActual}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.prepagoConsumo.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="prepagoConsumo.miembro">
+                        <a [routerLink]="['/miembros', prepagoConsumo.miembro?.id, 'view']">{{prepagoConsumo.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.prepagoConsumo.tipoPrepago">Tipo Prepago</span></dt>
+                <dd>
+                    <div *ngIf="prepagoConsumo.tipoPrepago">
+                        <a [routerLink]="['/tipo-prepago-consumo', prepagoConsumo.tipoPrepago?.id, 'view']">{{prepagoConsumo.tipoPrepago?.nombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prepago-consumo', prepagoConsumo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

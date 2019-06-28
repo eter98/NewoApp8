@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perfilEquipoEmpresa">
+            <h2><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.detail.title">Perfil Equipo Empresa</span> {{perfilEquipoEmpresa.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.biografia">Biografia</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.biografia}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.foto1">Foto 1</span></dt>
+                <dd>
+                    <div *ngIf="perfilEquipoEmpresa.foto1">
+                        <a (click)="openFile(perfilEquipoEmpresa.foto1ContentType, perfilEquipoEmpresa.foto1)">
+                            <img [src]="'data:' + perfilEquipoEmpresa.foto1ContentType + ';base64,' + perfilEquipoEmpresa.foto1" style="max-width: 100%;" alt="perfilEquipoEmpresa image"/>
+                        </a>
+                        {{perfilEquipoEmpresa.foto1ContentType}}, {{byteSize(perfilEquipoEmpresa.foto1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.foto2">Foto 2</span></dt>
+                <dd>
+                    <div *ngIf="perfilEquipoEmpresa.foto2">
+                        <a (click)="openFile(perfilEquipoEmpresa.foto2ContentType, perfilEquipoEmpresa.foto2)">
+                            <img [src]="'data:' + perfilEquipoEmpresa.foto2ContentType + ';base64,' + perfilEquipoEmpresa.foto2" style="max-width: 100%;" alt="perfilEquipoEmpresa image"/>
+                        </a>
+                        {{perfilEquipoEmpresa.foto2ContentType}}, {{byteSize(perfilEquipoEmpresa.foto2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.fot3">Fot 3</span></dt>
+                <dd>
+                    <div *ngIf="perfilEquipoEmpresa.fot3">
+                        <a (click)="openFile(perfilEquipoEmpresa.fot3ContentType, perfilEquipoEmpresa.fot3)">
+                            <img [src]="'data:' + perfilEquipoEmpresa.fot3ContentType + ';base64,' + perfilEquipoEmpresa.fot3" style="max-width: 100%;" alt="perfilEquipoEmpresa image"/>
+                        </a>
+                        {{perfilEquipoEmpresa.fot3ContentType}}, {{byteSize(perfilEquipoEmpresa.fot3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.conocimientosQueDomina">Conocimientos Que Domina</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.conocimientosQueDomina}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.temasDeInteres">Temas De Interes</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.temasDeInteres}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.instagram}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.idGoogle">Id Google</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.idGoogle}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.twiter">Twiter</span></dt>
+                <dd>
+                    <span>{{perfilEquipoEmpresa.twiter}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.empresa">Empresa</span></dt>
+                <dd>
+                    <div *ngIf="perfilEquipoEmpresa.empresa">
+                        <a [routerLink]="['/empresa', perfilEquipoEmpresa.empresa?.id, 'view']">{{perfilEquipoEmpresa.empresa?.razonSocial}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/perfil-equipo-empresa', perfilEquipoEmpresa.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

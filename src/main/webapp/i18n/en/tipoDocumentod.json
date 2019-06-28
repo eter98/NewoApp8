@@ -1,0 +1,11 @@
+{
+  "newoApp8App": {
+    "TipoDocumentod": {
+      "null": "",
+      "Cedula": "Cedula",
+      "Cedula_Extranjeria": "Cedula_Extranjeria",
+      "Pasaporte": "Pasaporte",
+      "Otro": "Otro"
+    }
+  }
+}

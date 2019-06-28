@@ -1,0 +1,118 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.grupos.home.title">Grupos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-grupos" [routerLink]="['/grupos/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.grupos.home.createLabel">
+            Create new Grupos
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="grupos?.length === 0">
+        <span jhiTranslate="newoApp8App.grupos.home.notFound">No grupos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="grupos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.nombreGrupo">Nombre Grupo</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.instagram">Instagram</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.facebook">Facebook</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.twiter">Twiter</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.linkedIn">Linked In</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.tipoGrupo">Tipo Grupo</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.tipoConsumo">Tipo Consumo</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.valorSuscripcion">Valor Suscripcion</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.impuesto">Impuesto</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.reglasGrupo">Reglas Grupo</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.audio">Audio</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.video">Video</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.foto1">Foto 1</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.foto2">Foto 2</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.banner">Banner</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.categoriaGrupo">Categoria Grupo</span></th>
+            <th><span jhiTranslate="newoApp8App.grupos.evento">Evento</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let grupos of grupos ;trackBy: trackId">
+                <td><a [routerLink]="['/grupos', grupos.id, 'view' ]">{{grupos.id}}</a></td>
+                <td>{{grupos.nombreGrupo}}</td>
+                <td>{{grupos.instagram}}</td>
+                <td>{{grupos.facebook}}</td>
+                <td>{{grupos.twiter}}</td>
+                <td>{{grupos.linkedIn}}</td>
+                <td jhiTranslate="{{'newoApp8App.TipoGrupod.' + grupos.tipoGrupo}}">{{grupos.tipoGrupo}}</td>
+                <td jhiTranslate="{{'newoApp8App.TipoConsumod.' + grupos.tipoConsumo}}">{{grupos.tipoConsumo}}</td>
+                <td>{{grupos.valorSuscripcion}}</td>
+                <td jhiTranslate="{{'newoApp8App.Impuestod.' + grupos.impuesto}}">{{grupos.impuesto}}</td>
+                <td>{{grupos.reglasGrupo}}</td>
+                <td>
+                    <a *ngIf="grupos.audio" (click)="openFile(grupos.audioContentType, grupos.audio)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="grupos.audio">{{grupos.audioContentType}}, {{byteSize(grupos.audio)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="grupos.video" (click)="openFile(grupos.videoContentType, grupos.video)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="grupos.video">{{grupos.videoContentType}}, {{byteSize(grupos.video)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="grupos.foto1" (click)="openFile(grupos.foto1ContentType, grupos.foto1)">
+                        <img [src]="'data:' + grupos.foto1ContentType + ';base64,' + grupos.foto1" style="max-height: 30px;" alt="grupos image"/>
+                    </a>
+                    <span *ngIf="grupos.foto1">{{grupos.foto1ContentType}}, {{byteSize(grupos.foto1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="grupos.foto2" (click)="openFile(grupos.foto2ContentType, grupos.foto2)">
+                        <img [src]="'data:' + grupos.foto2ContentType + ';base64,' + grupos.foto2" style="max-height: 30px;" alt="grupos image"/>
+                    </a>
+                    <span *ngIf="grupos.foto2">{{grupos.foto2ContentType}}, {{byteSize(grupos.foto2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="grupos.banner" (click)="openFile(grupos.bannerContentType, grupos.banner)">
+                        <img [src]="'data:' + grupos.bannerContentType + ';base64,' + grupos.banner" style="max-height: 30px;" alt="grupos image"/>
+                    </a>
+                    <span *ngIf="grupos.banner">{{grupos.bannerContentType}}, {{byteSize(grupos.banner)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="grupos.categoriaGrupo">
+                        <a [routerLink]="['../categoria-contenidos', grupos.categoriaGrupo?.id, 'view' ]" >{{grupos.categoriaGrupo?.categoria}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="grupos.evento">
+                        <a [routerLink]="['../evento', grupos.evento?.id, 'view' ]" >{{grupos.evento?.nombreEvento}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/grupos', grupos.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/grupos', grupos.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'grupos', { outlets: { popup: grupos.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

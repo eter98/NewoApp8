@@ -1,0 +1,39 @@
+{
+    "name": "TipoPrepagoConsumo",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valorMinimo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valorMaximo",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "beneficio",
+            "otherEntityRelationshipName": "tipoPrepagoConsumo",
+            "relationshipName": "tipoBeneficio",
+            "otherEntityField": "tipoBeneficio"
+        }
+    ],
+    "changelogDate": "20190628144249",
+    "entityTableName": "tipo_prepago_consumo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

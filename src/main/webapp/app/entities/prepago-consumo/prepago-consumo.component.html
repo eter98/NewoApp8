@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.prepagoConsumo.home.title">Prepago Consumos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prepago-consumo" [routerLink]="['/prepago-consumo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.prepagoConsumo.home.createLabel">
+            Create new Prepago Consumo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="prepagoConsumos?.length === 0">
+        <span jhiTranslate="newoApp8App.prepagoConsumo.home.notFound">No prepagoConsumos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="prepagoConsumos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.prepagoConsumo.aporte">Aporte</span></th>
+            <th><span jhiTranslate="newoApp8App.prepagoConsumo.saldoActual">Saldo Actual</span></th>
+            <th><span jhiTranslate="newoApp8App.prepagoConsumo.fechaRegistro">Fecha Registro</span></th>
+            <th><span jhiTranslate="newoApp8App.prepagoConsumo.fechaSaldoActual">Fecha Saldo Actual</span></th>
+            <th><span jhiTranslate="newoApp8App.prepagoConsumo.miembro">Miembro</span></th>
+            <th><span jhiTranslate="newoApp8App.prepagoConsumo.tipoPrepago">Tipo Prepago</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prepagoConsumo of prepagoConsumos ;trackBy: trackId">
+                <td><a [routerLink]="['/prepago-consumo', prepagoConsumo.id, 'view' ]">{{prepagoConsumo.id}}</a></td>
+                <td>{{prepagoConsumo.aporte}}</td>
+                <td>{{prepagoConsumo.saldoActual}}</td>
+                <td>{{prepagoConsumo.fechaRegistro | date:'mediumDate'}}</td>
+                <td>{{prepagoConsumo.fechaSaldoActual | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="prepagoConsumo.miembro">
+                        <a [routerLink]="['../miembros', prepagoConsumo.miembro?.id, 'view' ]" >{{prepagoConsumo.miembro?.identificacion}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="prepagoConsumo.tipoPrepago">
+                        <a [routerLink]="['../tipo-prepago-consumo', prepagoConsumo.tipoPrepago?.id, 'view' ]" >{{prepagoConsumo.tipoPrepago?.nombre}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/prepago-consumo', prepagoConsumo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/prepago-consumo', prepagoConsumo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'prepago-consumo', { outlets: { popup: prepagoConsumo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
