@@ -1,0 +1,96 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.perfilEquipoEmpresa.home.title">Perfil Equipo Empresas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-perfil-equipo-empresa" [routerLink]="['/perfil-equipo-empresa/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.perfilEquipoEmpresa.home.createLabel">
+            Create new Perfil Equipo Empresa
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="perfilEquipoEmpresas?.length === 0">
+        <span jhiTranslate="newoApp8App.perfilEquipoEmpresa.home.notFound">No perfilEquipoEmpresas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="perfilEquipoEmpresas?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.biografia">Biografia</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.foto1">Foto 1</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.foto2">Foto 2</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.fot3">Fot 3</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.conocimientosQueDomina">Conocimientos Que Domina</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.temasDeInteres">Temas De Interes</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.facebook">Facebook</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.instagram">Instagram</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.idGoogle">Id Google</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.twiter">Twiter</span></th>
+            <th><span jhiTranslate="newoApp8App.perfilEquipoEmpresa.empresa">Empresa</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let perfilEquipoEmpresa of perfilEquipoEmpresas ;trackBy: trackId">
+                <td><a [routerLink]="['/perfil-equipo-empresa', perfilEquipoEmpresa.id, 'view' ]">{{perfilEquipoEmpresa.id}}</a></td>
+                <td>{{perfilEquipoEmpresa.biografia}}</td>
+                <td>
+                    <a *ngIf="perfilEquipoEmpresa.foto1" (click)="openFile(perfilEquipoEmpresa.foto1ContentType, perfilEquipoEmpresa.foto1)">
+                        <img [src]="'data:' + perfilEquipoEmpresa.foto1ContentType + ';base64,' + perfilEquipoEmpresa.foto1" style="max-height: 30px;" alt="perfilEquipoEmpresa image"/>
+                    </a>
+                    <span *ngIf="perfilEquipoEmpresa.foto1">{{perfilEquipoEmpresa.foto1ContentType}}, {{byteSize(perfilEquipoEmpresa.foto1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="perfilEquipoEmpresa.foto2" (click)="openFile(perfilEquipoEmpresa.foto2ContentType, perfilEquipoEmpresa.foto2)">
+                        <img [src]="'data:' + perfilEquipoEmpresa.foto2ContentType + ';base64,' + perfilEquipoEmpresa.foto2" style="max-height: 30px;" alt="perfilEquipoEmpresa image"/>
+                    </a>
+                    <span *ngIf="perfilEquipoEmpresa.foto2">{{perfilEquipoEmpresa.foto2ContentType}}, {{byteSize(perfilEquipoEmpresa.foto2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="perfilEquipoEmpresa.fot3" (click)="openFile(perfilEquipoEmpresa.fot3ContentType, perfilEquipoEmpresa.fot3)">
+                        <img [src]="'data:' + perfilEquipoEmpresa.fot3ContentType + ';base64,' + perfilEquipoEmpresa.fot3" style="max-height: 30px;" alt="perfilEquipoEmpresa image"/>
+                    </a>
+                    <span *ngIf="perfilEquipoEmpresa.fot3">{{perfilEquipoEmpresa.fot3ContentType}}, {{byteSize(perfilEquipoEmpresa.fot3)}}</span>
+                </td>
+                <td>{{perfilEquipoEmpresa.conocimientosQueDomina}}</td>
+                <td>{{perfilEquipoEmpresa.temasDeInteres}}</td>
+                <td>{{perfilEquipoEmpresa.facebook}}</td>
+                <td>{{perfilEquipoEmpresa.instagram}}</td>
+                <td>{{perfilEquipoEmpresa.idGoogle}}</td>
+                <td>{{perfilEquipoEmpresa.twiter}}</td>
+                <td>
+                    <div *ngIf="perfilEquipoEmpresa.empresa">
+                        <a [routerLink]="['../empresa', perfilEquipoEmpresa.empresa?.id, 'view' ]" >{{perfilEquipoEmpresa.empresa?.razonSocial}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/perfil-equipo-empresa', perfilEquipoEmpresa.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/perfil-equipo-empresa', perfilEquipoEmpresa.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'perfil-equipo-empresa', { outlets: { popup: perfilEquipoEmpresa.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

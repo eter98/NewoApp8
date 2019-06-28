@@ -1,0 +1,22 @@
+{
+  "newoApp8App": {
+    "miembrosGrupo": {
+      "home": {
+        "title": "Miembros Grupos",
+        "createLabel": "Create a new Miembros Grupo",
+        "createOrEditLabel": "Create or edit a Miembros Grupo",
+        "notFound": "No Miembros Grupo found"
+      },
+      "created": "A new Miembros Grupo is created with identifier {{ param }}",
+      "updated": "A Miembros Grupo is updated with identifier {{ param }}",
+      "deleted": "A Miembros Grupo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Miembros Grupo {{ id }}?"
+      },
+      "detail": {
+        "title": "Miembros Grupo"
+      },
+      "miembro": "Miembro"
+    }
+  }
+}

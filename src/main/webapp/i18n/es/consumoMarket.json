@@ -1,0 +1,26 @@
+{
+  "newoApp8App": {
+    "consumoMarket": {
+      "home": {
+        "title": "Consumo Markets",
+        "createLabel": "Crear nuevo Consumo Market",
+        "createOrEditLabel": "Crear o editar Consumo Market",
+        "notFound": "No Consumo Market found"
+      },
+      "created": "Un nuevo Consumo Market ha sido creado con el identificador {{ param }}",
+      "updated": "Un Consumo Market ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Consumo Market ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Consumo Market {{ id }}?"
+      },
+      "detail": {
+        "title": "Consumo Market"
+      },
+      "totalConsumido": "Total Consumido",
+      "registroFechaInicial": "Registro Fecha Inicial",
+      "registroFechaFinal": "Registro Fecha Final",
+      "impuesto": "Impuesto",
+      "miembro": "Miembro"
+    }
+  }
+}

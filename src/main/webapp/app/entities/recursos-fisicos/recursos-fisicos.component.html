@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.recursosFisicos.home.title">Recursos Fisicos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recursos-fisicos" [routerLink]="['/recursos-fisicos/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.recursosFisicos.home.createLabel">
+            Create new Recursos Fisicos
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="recursosFisicos?.length === 0">
+        <span jhiTranslate="newoApp8App.recursosFisicos.home.notFound">No recursosFisicos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="recursosFisicos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.recurso">Recurso</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.tipo">Tipo</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.unidadMedida">Unidad Medida</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valorUnitario">Valor Unitario</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor1H">Valor 1 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor2H">Valor 2 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor3H">Valor 3 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor4H">Valor 4 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor5H">Valor 5 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor6H">Valor 6 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor7H">Valor 7 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor8H">Valor 8 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor9H">Valor 9 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor10H">Valor 10 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor11H">Valor 11 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.valor12H">Valor 12 H</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.impuesto">Impuesto</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.foto">Foto</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.video">Video</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.sede">Sede</span></th>
+            <th><span jhiTranslate="newoApp8App.recursosFisicos.tipoRecurso">Tipo Recurso</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let recursosFisicos of recursosFisicos ;trackBy: trackId">
+                <td><a [routerLink]="['/recursos-fisicos', recursosFisicos.id, 'view' ]">{{recursosFisicos.id}}</a></td>
+                <td>{{recursosFisicos.recurso}}</td>
+                <td jhiTranslate="{{'newoApp8App.TipoRecursod.' + recursosFisicos.tipo}}">{{recursosFisicos.tipo}}</td>
+                <td>{{recursosFisicos.unidadMedida}}</td>
+                <td>{{recursosFisicos.valorUnitario}}</td>
+                <td>{{recursosFisicos.valor1H}}</td>
+                <td>{{recursosFisicos.valor2H}}</td>
+                <td>{{recursosFisicos.valor3H}}</td>
+                <td>{{recursosFisicos.valor4H}}</td>
+                <td>{{recursosFisicos.valor5H}}</td>
+                <td>{{recursosFisicos.valor6H}}</td>
+                <td>{{recursosFisicos.valor7H}}</td>
+                <td>{{recursosFisicos.valor8H}}</td>
+                <td>{{recursosFisicos.valor9H}}</td>
+                <td>{{recursosFisicos.valor10H}}</td>
+                <td>{{recursosFisicos.valor11H}}</td>
+                <td>{{recursosFisicos.valor12H}}</td>
+                <td jhiTranslate="{{'newoApp8App.Impuestod.' + recursosFisicos.impuesto}}">{{recursosFisicos.impuesto}}</td>
+                <td>
+                    <a *ngIf="recursosFisicos.foto" (click)="openFile(recursosFisicos.fotoContentType, recursosFisicos.foto)">
+                        <img [src]="'data:' + recursosFisicos.fotoContentType + ';base64,' + recursosFisicos.foto" style="max-height: 30px;" alt="recursosFisicos image"/>
+                    </a>
+                    <span *ngIf="recursosFisicos.foto">{{recursosFisicos.fotoContentType}}, {{byteSize(recursosFisicos.foto)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="recursosFisicos.video" (click)="openFile(recursosFisicos.videoContentType, recursosFisicos.video)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="recursosFisicos.video">{{recursosFisicos.videoContentType}}, {{byteSize(recursosFisicos.video)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="recursosFisicos.sede">
+                        <a [routerLink]="['../sedes', recursosFisicos.sede?.id, 'view' ]" >{{recursosFisicos.sede?.nombreSede}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="recursosFisicos.tipoRecurso">
+                        <a [routerLink]="['../tipo-recurso', recursosFisicos.tipoRecurso?.id, 'view' ]" >{{recursosFisicos.tipoRecurso?.nombre}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/recursos-fisicos', recursosFisicos.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/recursos-fisicos', recursosFisicos.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'recursos-fisicos', { outlets: { popup: recursosFisicos.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

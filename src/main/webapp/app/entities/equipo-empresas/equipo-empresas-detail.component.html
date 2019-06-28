@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="equipoEmpresas">
+            <h2><span jhiTranslate="newoApp8App.equipoEmpresas.detail.title">Equipo Empresas</span> {{equipoEmpresas.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{equipoEmpresas.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{equipoEmpresas.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.correo">Correo</span></dt>
+                <dd>
+                    <span>{{equipoEmpresas.correo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{equipoEmpresas.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{equipoEmpresas.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.logos">Logos</span></dt>
+                <dd>
+                    <div *ngIf="equipoEmpresas.logos">
+                        <a (click)="openFile(equipoEmpresas.logosContentType, equipoEmpresas.logos)">
+                            <img [src]="'data:' + equipoEmpresas.logosContentType + ';base64,' + equipoEmpresas.logos" style="max-width: 100%;" alt="equipoEmpresas image"/>
+                        </a>
+                        {{equipoEmpresas.logosContentType}}, {{byteSize(equipoEmpresas.logos)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.paginaWeb">Pagina Web</span></dt>
+                <dd>
+                    <span>{{equipoEmpresas.paginaWeb}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.usuario">Usuario</span></dt>
+                <dd>
+                    {{equipoEmpresas.usuario?.login}}
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="equipoEmpresas.miembro">
+                        <a [routerLink]="['/miembros', equipoEmpresas.miembro?.id, 'view']">{{equipoEmpresas.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.equipoEmpresas.empresa">Empresa</span></dt>
+                <dd>
+                    <div *ngIf="equipoEmpresas.empresa">
+                        <a [routerLink]="['/empresa', equipoEmpresas.empresa?.id, 'view']">{{equipoEmpresas.empresa?.razonSocial}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/equipo-empresas', equipoEmpresas.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "newoApp8App": {
+    "usoRecursoFisico": {
+      "home": {
+        "title": "Uso Recurso Fisicos",
+        "createLabel": "Crear nuevo Uso Recurso Fisico",
+        "createOrEditLabel": "Crear o editar Uso Recurso Fisico",
+        "notFound": "No Uso Recurso Fisico found"
+      },
+      "created": "Un nuevo Uso Recurso Fisico ha sido creado con el identificador {{ param }}",
+      "updated": "Un Uso Recurso Fisico ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Uso Recurso Fisico ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Uso Recurso Fisico {{ id }}?"
+      },
+      "detail": {
+        "title": "Uso Recurso Fisico"
+      },
+      "registroFechaInicio": "Registro Fecha Inicio",
+      "registroFechaFinal": "Registro Fecha Final",
+      "tipoRegistro": "Tipo Registro",
+      "recurso": "Recurso",
+      "miembro": "Miembro"
+    }
+  }
+}

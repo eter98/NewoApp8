@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.facturacion.home.title">Facturacions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-facturacion" [routerLink]="['/facturacion/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.facturacion.home.createLabel">
+            Create new Facturacion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="facturacions?.length === 0">
+        <span jhiTranslate="newoApp8App.facturacion.home.notFound">No facturacions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="facturacions?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.titularFactura">Titular Factura</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.tipoPersona">Tipo Persona</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.periodicidadFacturacion">Periodicidad Facturacion</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.maximoMonto">Maximo Monto</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.empresa">Empresa</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.titular">Titular</span></th>
+            <th><span jhiTranslate="newoApp8App.facturacion.cuentaAsociada">Cuenta Asociada</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let facturacion of facturacions ;trackBy: trackId">
+                <td><a [routerLink]="['/facturacion', facturacion.id, 'view' ]">{{facturacion.id}}</a></td>
+                <td>{{facturacion.titularFactura}}</td>
+                <td jhiTranslate="{{'newoApp8App.TipoPersonad.' + facturacion.tipoPersona}}">{{facturacion.tipoPersona}}</td>
+                <td jhiTranslate="{{'newoApp8App.PeriodicidadFacturaciond.' + facturacion.periodicidadFacturacion}}">{{facturacion.periodicidadFacturacion}}</td>
+                <td>{{facturacion.maximoMonto}}</td>
+                <td>
+                    <div *ngIf="facturacion.empresa">
+                        <a [routerLink]="['../empresa', facturacion.empresa?.id, 'view' ]" >{{facturacion.empresa?.razonSocial}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="facturacion.titular">
+                        <a [routerLink]="['../cuenta-asociada', facturacion.titular?.id, 'view' ]" >{{facturacion.titular?.identificacionTitular}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="facturacion.cuentaAsociada">
+                        <a [routerLink]="['../cuenta-asociada', facturacion.cuentaAsociada?.id, 'view' ]" >{{facturacion.cuentaAsociada?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/facturacion', facturacion.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/facturacion', facturacion.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'facturacion', { outlets: { popup: facturacion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

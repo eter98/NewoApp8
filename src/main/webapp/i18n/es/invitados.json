@@ -1,0 +1,28 @@
+{
+  "newoApp8App": {
+    "invitados": {
+      "home": {
+        "title": "Invitados",
+        "createLabel": "Crear nuevo Invitados",
+        "createOrEditLabel": "Crear o editar Invitados",
+        "notFound": "No Invitados found"
+      },
+      "created": "Un nuevo Invitados ha sido creado con el identificador {{ param }}",
+      "updated": "Un Invitados ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Invitados ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Invitados {{ id }}?"
+      },
+      "detail": {
+        "title": "Invitados"
+      },
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "tipoDocumento": "Tipo Documento",
+      "identificacion": "Identificacion",
+      "correo": "Correo",
+      "telefono": "Telefono",
+      "miembro": "Miembro"
+    }
+  }
+}

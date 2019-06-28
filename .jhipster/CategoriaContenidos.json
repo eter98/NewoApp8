@@ -1,0 +1,19 @@
+{
+    "name": "CategoriaContenidos",
+    "fields": [
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190628144237",
+    "entityTableName": "categoria_contenidos",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

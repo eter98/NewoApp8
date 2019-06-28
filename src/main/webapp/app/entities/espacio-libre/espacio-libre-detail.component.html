@@ -1,0 +1,176 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="espacioLibre">
+            <h2><span jhiTranslate="newoApp8App.espacioLibre.detail.title">Espacio Libre</span> {{espacioLibre.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{espacioLibre.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.capacidadInstalada">Capacidad Instalada</span></dt>
+                <dd>
+                    <span>{{espacioLibre.capacidadInstalada}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.wifi">Wifi</span></dt>
+                <dd>
+                    <span>{{espacioLibre.wifi}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa1hMiembro">Tarifa 1 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa1hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa2hMiembro">Tarifa 2 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa2hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa3hMiembro">Tarifa 3 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa3hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa4hMiembro">Tarifa 4 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa4hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa5hMiembro">Tarifa 5 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa5hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa6hMiembro">Tarifa 6 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa6hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa7hMiembro">Tarifa 7 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa7hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa8hMiembro">Tarifa 8 H Miembro</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa8hMiembro}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa1hInvitado">Tarifa 1 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa1hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa2hInvitado">Tarifa 2 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa2hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa3hInvitado">Tarifa 3 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa3hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa4hInvitado">Tarifa 4 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa4hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa5hInvitado">Tarifa 5 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa5hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa6hInvitado">Tarifa 6 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa6hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa7hInvitado">Tarifa 7 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa7hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tarifa8hInvitado">Tarifa 8 H Invitado</span></dt>
+                <dd>
+                    <span>{{espacioLibre.tarifa8hInvitado}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + espacioLibre.impuesto}}">{{espacioLibre.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.video">
+                        <a (click)="openFile(espacioLibre.videoContentType, espacioLibre.video)" jhiTranslate="entity.action.open">open</a>
+                        {{espacioLibre.videoContentType}}, {{byteSize(espacioLibre.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.imagen1">Imagen 1</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.imagen1">
+                        <a (click)="openFile(espacioLibre.imagen1ContentType, espacioLibre.imagen1)">
+                            <img [src]="'data:' + espacioLibre.imagen1ContentType + ';base64,' + espacioLibre.imagen1" style="max-width: 100%;" alt="espacioLibre image"/>
+                        </a>
+                        {{espacioLibre.imagen1ContentType}}, {{byteSize(espacioLibre.imagen1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.imagen2">Imagen 2</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.imagen2">
+                        <a (click)="openFile(espacioLibre.imagen2ContentType, espacioLibre.imagen2)">
+                            <img [src]="'data:' + espacioLibre.imagen2ContentType + ';base64,' + espacioLibre.imagen2" style="max-width: 100%;" alt="espacioLibre image"/>
+                        </a>
+                        {{espacioLibre.imagen2ContentType}}, {{byteSize(espacioLibre.imagen2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.imagen3">Imagen 3</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.imagen3">
+                        <a (click)="openFile(espacioLibre.imagen3ContentType, espacioLibre.imagen3)">
+                            <img [src]="'data:' + espacioLibre.imagen3ContentType + ';base64,' + espacioLibre.imagen3" style="max-width: 100%;" alt="espacioLibre image"/>
+                        </a>
+                        {{espacioLibre.imagen3ContentType}}, {{byteSize(espacioLibre.imagen3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.imagen4">Imagen 4</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.imagen4">
+                        <a (click)="openFile(espacioLibre.imagen4ContentType, espacioLibre.imagen4)">
+                            <img [src]="'data:' + espacioLibre.imagen4ContentType + ';base64,' + espacioLibre.imagen4" style="max-width: 100%;" alt="espacioLibre image"/>
+                        </a>
+                        {{espacioLibre.imagen4ContentType}}, {{byteSize(espacioLibre.imagen4)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.imagen5">Imagen 5</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.imagen5">
+                        <a (click)="openFile(espacioLibre.imagen5ContentType, espacioLibre.imagen5)">
+                            <img [src]="'data:' + espacioLibre.imagen5ContentType + ';base64,' + espacioLibre.imagen5" style="max-width: 100%;" alt="espacioLibre image"/>
+                        </a>
+                        {{espacioLibre.imagen5ContentType}}, {{byteSize(espacioLibre.imagen5)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.imagen6">Imagen 6</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.imagen6">
+                        <a (click)="openFile(espacioLibre.imagen6ContentType, espacioLibre.imagen6)">
+                            <img [src]="'data:' + espacioLibre.imagen6ContentType + ';base64,' + espacioLibre.imagen6" style="max-width: 100%;" alt="espacioLibre image"/>
+                        </a>
+                        {{espacioLibre.imagen6ContentType}}, {{byteSize(espacioLibre.imagen6)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.sede">Sede</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.sede">
+                        <a [routerLink]="['/sedes', espacioLibre.sede?.id, 'view']">{{espacioLibre.sede?.nombreSede}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.espacioLibre.tipoEspacio">Tipo Espacio</span></dt>
+                <dd>
+                    <div *ngIf="espacioLibre.tipoEspacio">
+                        <a [routerLink]="['/tipo-espacio', espacioLibre.tipoEspacio?.id, 'view']">{{espacioLibre.tipoEspacio?.tipoEspacio}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/espacio-libre', espacioLibre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.consumoMarket.home.title">Consumo Markets</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-consumo-market" [routerLink]="['/consumo-market/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.consumoMarket.home.createLabel">
+            Create new Consumo Market
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="consumoMarkets?.length === 0">
+        <span jhiTranslate="newoApp8App.consumoMarket.home.notFound">No consumoMarkets found</span>
+    </div>
+    <div class="table-responsive" *ngIf="consumoMarkets?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.consumoMarket.totalConsumido">Total Consumido</span></th>
+            <th><span jhiTranslate="newoApp8App.consumoMarket.registroFechaInicial">Registro Fecha Inicial</span></th>
+            <th><span jhiTranslate="newoApp8App.consumoMarket.registroFechaFinal">Registro Fecha Final</span></th>
+            <th><span jhiTranslate="newoApp8App.consumoMarket.impuesto">Impuesto</span></th>
+            <th><span jhiTranslate="newoApp8App.consumoMarket.miembro">Miembro</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let consumoMarket of consumoMarkets ;trackBy: trackId">
+                <td><a [routerLink]="['/consumo-market', consumoMarket.id, 'view' ]">{{consumoMarket.id}}</a></td>
+                <td>{{consumoMarket.totalConsumido}}</td>
+                <td>{{consumoMarket.registroFechaInicial | date:'mediumDate'}}</td>
+                <td>{{consumoMarket.registroFechaFinal | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'newoApp8App.Impuestod.' + consumoMarket.impuesto}}">{{consumoMarket.impuesto}}</td>
+                <td>
+                    <div *ngIf="consumoMarket.miembro">
+                        <a [routerLink]="['../miembros', consumoMarket.miembro?.id, 'view' ]" >{{consumoMarket.miembro?.identificacion}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/consumo-market', consumoMarket.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/consumo-market', consumoMarket.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'consumo-market', { outlets: { popup: consumoMarket.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

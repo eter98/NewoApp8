@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reservas-heading" jhiTranslate="newoApp8App.reservas.home.createOrEditLabel">Create or edit a Reservas</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.reservas.registroFechaEntrada" for="field_registroFechaEntrada">Registro Fecha Entrada</label>
+                    <div class="d-flex">
+                        <input id="field_registroFechaEntrada" type="datetime-local" class="form-control" name="registroFechaEntrada" formControlName="registroFechaEntrada" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.reservas.registroFechaSalida" for="field_registroFechaSalida">Registro Fecha Salida</label>
+                    <div class="d-flex">
+                        <input id="field_registroFechaSalida" type="datetime-local" class="form-control" name="registroFechaSalida" formControlName="registroFechaSalida" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.reservas.estadoReserva" for="field_estadoReserva">Estado Reserva</label>
+                    <select class="form-control" name="estadoReserva" formControlName="estadoReserva" id="field_estadoReserva">
+                        <option value="Diseponible">{{'newoApp8App.EstadoReservad.Diseponible' | translate}}</option>
+                        <option value="Reservado">{{'newoApp8App.EstadoReservad.Reservado' | translate}}</option>
+                        <option value="Ocupado">{{'newoApp8App.EstadoReservad.Ocupado' | translate}}</option>
+                        <option value="Extendido">{{'newoApp8App.EstadoReservad.Extendido' | translate}}</option>
+                        <option value="Cerrado">{{'newoApp8App.EstadoReservad.Cerrado' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.reservas.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.reservas.espacio" for="field_espacio">Espacio</label>
+                    <select class="form-control" id="field_espacio" name="espacio" formControlName="espacio">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="espaciosReservaOption.id === editForm.get('espacio').value?.id ? editForm.get('espacio').value : espaciosReservaOption" *ngFor="let espaciosReservaOption of espaciosreservas; trackBy: trackEspaciosReservaById">{{espaciosReservaOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

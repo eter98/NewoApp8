@@ -1,0 +1,55 @@
+{
+    "name": "RegistroCompra",
+    "fields": [
+        {
+            "fieldName": "consumoMarket",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "registroCompra",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "facturacion",
+            "otherEntityRelationshipName": "registroCompra",
+            "relationshipName": "facturacion",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reservas",
+            "otherEntityRelationshipName": "registroCompra",
+            "relationshipName": "reservas",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "entradaInvitados",
+            "otherEntityRelationshipName": "registroCompra",
+            "relationshipName": "entradaInvitados",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "entradaMiembros",
+            "otherEntityRelationshipName": "registroCompra",
+            "relationshipName": "entradaMiembros",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190628144223",
+    "entityTableName": "registro_compra",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.cuentaAsociada.home.title">Cuenta Asociadas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cuenta-asociada" [routerLink]="['/cuenta-asociada/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.cuentaAsociada.home.createLabel">
+            Create new Cuenta Asociada
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="cuentaAsociadas?.length === 0">
+        <span jhiTranslate="newoApp8App.cuentaAsociada.home.notFound">No cuentaAsociadas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="cuentaAsociadas?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.identificaciontitular">Identificaciontitular</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.nombreTitular">Nombre Titular</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.apellidoTitular">Apellido Titular</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.numeroCuenta">Numero Cuenta</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.tipoCuenta">Tipo Cuenta</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.codigoSeguridad">Codigo Seguridad</span></th>
+            <th><span jhiTranslate="newoApp8App.cuentaAsociada.fechaVencimiento">Fecha Vencimiento</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cuentaAsociada of cuentaAsociadas ;trackBy: trackId">
+                <td><a [routerLink]="['/cuenta-asociada', cuentaAsociada.id, 'view' ]">{{cuentaAsociada.id}}</a></td>
+                <td>{{cuentaAsociada.identificaciontitular}}</td>
+                <td>{{cuentaAsociada.nombreTitular}}</td>
+                <td>{{cuentaAsociada.apellidoTitular}}</td>
+                <td>{{cuentaAsociada.numeroCuenta}}</td>
+                <td>{{cuentaAsociada.tipoCuenta}}</td>
+                <td>{{cuentaAsociada.codigoSeguridad}}</td>
+                <td>{{cuentaAsociada.fechaVencimiento | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/cuenta-asociada', cuentaAsociada.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cuenta-asociada', cuentaAsociada.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'cuenta-asociada', { outlets: { popup: cuentaAsociada.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

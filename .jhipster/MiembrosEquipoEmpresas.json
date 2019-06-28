@@ -1,0 +1,36 @@
+{
+    "name": "MiembrosEquipoEmpresas",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "empresa",
+            "otherEntityRelationshipName": "miembrosEquipoEmpresas",
+            "relationshipName": "empresa",
+            "otherEntityField": "razonSocial"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "equipoEmpresas",
+            "otherEntityRelationshipName": "miembrosEquipoEmpresas",
+            "relationshipName": "equipo",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "miembrosEquipoEmpresas",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        }
+    ],
+    "changelogDate": "20190628144226",
+    "entityTableName": "miembros_equipo_empresas",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

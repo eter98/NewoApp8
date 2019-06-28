@@ -1,0 +1,140 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.espaciosReserva.home.title">Espacios Reservas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-espacios-reserva" [routerLink]="['/espacios-reserva/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.espaciosReserva.home.createLabel">
+            Create new Espacios Reserva
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="espaciosReservas?.length === 0">
+        <span jhiTranslate="newoApp8App.espaciosReserva.home.notFound">No espaciosReservas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="espaciosReservas?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.nombre">Nombre</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.descripcion">Descripcion</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.facilidades">Facilidades</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.capacidad">Capacidad</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.apertura">Apertura</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.cierre">Cierre</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa1Hora">Tarifa 1 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa2Hora">Tarifa 2 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa3Hora">Tarifa 3 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa4Hora">Tarifa 4 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa5Hora">Tarifa 5 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa6Hora">Tarifa 6 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa7Hora">Tarifa 7 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.tarifa8Hora">Tarifa 8 Hora</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.impuesto">Impuesto</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.wifi">Wifi</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.video">Video</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.imagen1">Imagen 1</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.imagen2">Imagen 2</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.imagen3">Imagen 3</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.imagen4">Imagen 4</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.imagen5">Imagen 5</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.imagen6">Imagen 6</span></th>
+            <th><span jhiTranslate="newoApp8App.espaciosReserva.sede">Sede</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let espaciosReserva of espaciosReservas ;trackBy: trackId">
+                <td><a [routerLink]="['/espacios-reserva', espaciosReserva.id, 'view' ]">{{espaciosReserva.id}}</a></td>
+                <td>{{espaciosReserva.nombre}}</td>
+                <td>{{espaciosReserva.descripcion}}</td>
+                <td>{{espaciosReserva.facilidades}}</td>
+                <td>{{espaciosReserva.capacidad}}</td>
+                <td>{{espaciosReserva.apertura}}</td>
+                <td>{{espaciosReserva.cierre}}</td>
+                <td>{{espaciosReserva.tarifa1Hora}}</td>
+                <td>{{espaciosReserva.tarifa2Hora}}</td>
+                <td>{{espaciosReserva.tarifa3Hora}}</td>
+                <td>{{espaciosReserva.tarifa4Hora}}</td>
+                <td>{{espaciosReserva.tarifa5Hora}}</td>
+                <td>{{espaciosReserva.tarifa6Hora}}</td>
+                <td>{{espaciosReserva.tarifa7Hora}}</td>
+                <td>{{espaciosReserva.tarifa8Hora}}</td>
+                <td jhiTranslate="{{'newoApp8App.Impuestod.' + espaciosReserva.impuesto}}">{{espaciosReserva.impuesto}}</td>
+                <td>{{espaciosReserva.wifi}}</td>
+                <td>
+                    <a *ngIf="espaciosReserva.video" (click)="openFile(espaciosReserva.videoContentType, espaciosReserva.video)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="espaciosReserva.video">{{espaciosReserva.videoContentType}}, {{byteSize(espaciosReserva.video)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="espaciosReserva.imagen1" (click)="openFile(espaciosReserva.imagen1ContentType, espaciosReserva.imagen1)">
+                        <img [src]="'data:' + espaciosReserva.imagen1ContentType + ';base64,' + espaciosReserva.imagen1" style="max-height: 30px;" alt="espaciosReserva image"/>
+                    </a>
+                    <span *ngIf="espaciosReserva.imagen1">{{espaciosReserva.imagen1ContentType}}, {{byteSize(espaciosReserva.imagen1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="espaciosReserva.imagen2" (click)="openFile(espaciosReserva.imagen2ContentType, espaciosReserva.imagen2)">
+                        <img [src]="'data:' + espaciosReserva.imagen2ContentType + ';base64,' + espaciosReserva.imagen2" style="max-height: 30px;" alt="espaciosReserva image"/>
+                    </a>
+                    <span *ngIf="espaciosReserva.imagen2">{{espaciosReserva.imagen2ContentType}}, {{byteSize(espaciosReserva.imagen2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="espaciosReserva.imagen3" (click)="openFile(espaciosReserva.imagen3ContentType, espaciosReserva.imagen3)">
+                        <img [src]="'data:' + espaciosReserva.imagen3ContentType + ';base64,' + espaciosReserva.imagen3" style="max-height: 30px;" alt="espaciosReserva image"/>
+                    </a>
+                    <span *ngIf="espaciosReserva.imagen3">{{espaciosReserva.imagen3ContentType}}, {{byteSize(espaciosReserva.imagen3)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="espaciosReserva.imagen4" (click)="openFile(espaciosReserva.imagen4ContentType, espaciosReserva.imagen4)">
+                        <img [src]="'data:' + espaciosReserva.imagen4ContentType + ';base64,' + espaciosReserva.imagen4" style="max-height: 30px;" alt="espaciosReserva image"/>
+                    </a>
+                    <span *ngIf="espaciosReserva.imagen4">{{espaciosReserva.imagen4ContentType}}, {{byteSize(espaciosReserva.imagen4)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="espaciosReserva.imagen5" (click)="openFile(espaciosReserva.imagen5ContentType, espaciosReserva.imagen5)">
+                        <img [src]="'data:' + espaciosReserva.imagen5ContentType + ';base64,' + espaciosReserva.imagen5" style="max-height: 30px;" alt="espaciosReserva image"/>
+                    </a>
+                    <span *ngIf="espaciosReserva.imagen5">{{espaciosReserva.imagen5ContentType}}, {{byteSize(espaciosReserva.imagen5)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="espaciosReserva.imagen6" (click)="openFile(espaciosReserva.imagen6ContentType, espaciosReserva.imagen6)">
+                        <img [src]="'data:' + espaciosReserva.imagen6ContentType + ';base64,' + espaciosReserva.imagen6" style="max-height: 30px;" alt="espaciosReserva image"/>
+                    </a>
+                    <span *ngIf="espaciosReserva.imagen6">{{espaciosReserva.imagen6ContentType}}, {{byteSize(espaciosReserva.imagen6)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="espaciosReserva.sede">
+                        <a [routerLink]="['../sedes', espaciosReserva.sede?.id, 'view' ]" >{{espaciosReserva.sede?.nombreSede}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/espacios-reserva', espaciosReserva.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/espacios-reserva', espaciosReserva.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'espacios-reserva', { outlets: { popup: espaciosReserva.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

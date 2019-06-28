@@ -1,0 +1,124 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.sedes.home.title">Sedes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sedes" [routerLink]="['/sedes/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.sedes.home.createLabel">
+            Create new Sedes
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sedes?.length === 0">
+        <span jhiTranslate="newoApp8App.sedes.home.notFound">No sedes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sedes?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.nombreSede">Nombre Sede</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.coordenadaX">Coordenada X</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.coordenadaY">Coordenada Y</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.direccion">Direccion</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.telefonoComunidad">Telefono Comunidad</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.telefonoNegocio">Telefono Negocio</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.descripcionSede">Descripcion Sede</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.horario">Horario</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.video">Video</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.imagen1">Imagen 1</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.imagen2">Imagen 2</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.imagen3">Imagen 3</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.imagen4">Imagen 4</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.imagen5">Imagen 5</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.imagen6">Imagen 6</span></th>
+            <th><span jhiTranslate="newoApp8App.sedes.ciudad">Ciudad</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sedes of sedes ;trackBy: trackId">
+                <td><a [routerLink]="['/sedes', sedes.id, 'view' ]">{{sedes.id}}</a></td>
+                <td>{{sedes.nombreSede}}</td>
+                <td>{{sedes.coordenadaX}}</td>
+                <td>{{sedes.coordenadaY}}</td>
+                <td>{{sedes.direccion}}</td>
+                <td>{{sedes.telefonoComunidad}}</td>
+                <td>{{sedes.telefonoNegocio}}</td>
+                <td>{{sedes.descripcionSede}}</td>
+                <td>{{sedes.horario}}</td>
+                <td>
+                    <a *ngIf="sedes.video" (click)="openFile(sedes.videoContentType, sedes.video)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="sedes.video">{{sedes.videoContentType}}, {{byteSize(sedes.video)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="sedes.imagen1" (click)="openFile(sedes.imagen1ContentType, sedes.imagen1)">
+                        <img [src]="'data:' + sedes.imagen1ContentType + ';base64,' + sedes.imagen1" style="max-height: 30px;" alt="sedes image"/>
+                    </a>
+                    <span *ngIf="sedes.imagen1">{{sedes.imagen1ContentType}}, {{byteSize(sedes.imagen1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="sedes.imagen2" (click)="openFile(sedes.imagen2ContentType, sedes.imagen2)">
+                        <img [src]="'data:' + sedes.imagen2ContentType + ';base64,' + sedes.imagen2" style="max-height: 30px;" alt="sedes image"/>
+                    </a>
+                    <span *ngIf="sedes.imagen2">{{sedes.imagen2ContentType}}, {{byteSize(sedes.imagen2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="sedes.imagen3" (click)="openFile(sedes.imagen3ContentType, sedes.imagen3)">
+                        <img [src]="'data:' + sedes.imagen3ContentType + ';base64,' + sedes.imagen3" style="max-height: 30px;" alt="sedes image"/>
+                    </a>
+                    <span *ngIf="sedes.imagen3">{{sedes.imagen3ContentType}}, {{byteSize(sedes.imagen3)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="sedes.imagen4" (click)="openFile(sedes.imagen4ContentType, sedes.imagen4)">
+                        <img [src]="'data:' + sedes.imagen4ContentType + ';base64,' + sedes.imagen4" style="max-height: 30px;" alt="sedes image"/>
+                    </a>
+                    <span *ngIf="sedes.imagen4">{{sedes.imagen4ContentType}}, {{byteSize(sedes.imagen4)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="sedes.imagen5" (click)="openFile(sedes.imagen5ContentType, sedes.imagen5)">
+                        <img [src]="'data:' + sedes.imagen5ContentType + ';base64,' + sedes.imagen5" style="max-height: 30px;" alt="sedes image"/>
+                    </a>
+                    <span *ngIf="sedes.imagen5">{{sedes.imagen5ContentType}}, {{byteSize(sedes.imagen5)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="sedes.imagen6" (click)="openFile(sedes.imagen6ContentType, sedes.imagen6)">
+                        <img [src]="'data:' + sedes.imagen6ContentType + ';base64,' + sedes.imagen6" style="max-height: 30px;" alt="sedes image"/>
+                    </a>
+                    <span *ngIf="sedes.imagen6">{{sedes.imagen6ContentType}}, {{byteSize(sedes.imagen6)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="sedes.ciudad">
+                        <a [routerLink]="['../ciudad', sedes.ciudad?.id, 'view' ]" >{{sedes.ciudad?.nombreCiudad}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sedes', sedes.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sedes', sedes.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sedes', { outlets: { popup: sedes.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

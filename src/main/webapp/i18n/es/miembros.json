@@ -1,0 +1,37 @@
+{
+  "newoApp8App": {
+    "miembros": {
+      "home": {
+        "title": "Miembros",
+        "createLabel": "Crear nuevo Miembros",
+        "createOrEditLabel": "Crear o editar Miembros",
+        "notFound": "No Miembros found"
+      },
+      "created": "Un nuevo Miembros ha sido creado con el identificador {{ param }}",
+      "updated": "Un Miembros ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Miembros ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Miembros {{ id }}?"
+      },
+      "detail": {
+        "title": "Miembros"
+      },
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "nacionalidad": "Nacionalidad",
+      "tipoDocumento": "Tipo Documento",
+      "identificacion": "Identificacion",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "fechaRegistro": "Fecha Registro",
+      "genero": "Genero",
+      "correoElectronico": "Correo Electronico",
+      "celular": "Celular",
+      "derechosDeCompra": "Derechos De Compra",
+      "accesoIlimitado": "Acceso Ilimitado",
+      "aliado": "Aliado",
+      "host": "Host",
+      "miembro": "Miembro",
+      "sede": "Sede"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity RegistroCompra.
+    -->
+    <changeSet id="20190628144223-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="miembro_id"
+                                 baseTableName="registro_compra"
+                                 constraintName="fk_registro_compra_miembro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miembros"/>
+
+        <addForeignKeyConstraint baseColumnNames="facturacion_id"
+                                 baseTableName="registro_compra"
+                                 constraintName="fk_registro_compra_facturacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="facturacion"/>
+
+        <addForeignKeyConstraint baseColumnNames="reservas_id"
+                                 baseTableName="registro_compra"
+                                 constraintName="fk_registro_compra_reservas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reservas"/>
+
+        <addForeignKeyConstraint baseColumnNames="entrada_invitados_id"
+                                 baseTableName="registro_compra"
+                                 constraintName="fk_registro_compra_entrada_invitados_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entrada_invitados"/>
+
+        <addForeignKeyConstraint baseColumnNames="entrada_miembros_id"
+                                 baseTableName="registro_compra"
+                                 constraintName="fk_registro_compra_entrada_miembros_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entrada_miembros"/>
+
+    </changeSet>
+</databaseChangeLog>

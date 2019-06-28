@@ -1,0 +1,38 @@
+{
+  "newoApp8App": {
+    "grupos": {
+      "home": {
+        "title": "Grupos",
+        "createLabel": "Create a new Grupos",
+        "createOrEditLabel": "Create or edit a Grupos",
+        "notFound": "No Grupos found"
+      },
+      "created": "A new Grupos is created with identifier {{ param }}",
+      "updated": "A Grupos is updated with identifier {{ param }}",
+      "deleted": "A Grupos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Grupos {{ id }}?"
+      },
+      "detail": {
+        "title": "Grupos"
+      },
+      "nombreGrupo": "Nombre Grupo",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "twiter": "Twiter",
+      "linkedIn": "Linked In",
+      "tipoGrupo": "Tipo Grupo",
+      "tipoConsumo": "Tipo Consumo",
+      "valorSuscripcion": "Valor Suscripcion",
+      "impuesto": "Impuesto",
+      "reglasGrupo": "Reglas Grupo",
+      "audio": "Audio",
+      "video": "Video",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "banner": "Banner",
+      "categoriaGrupo": "Categoria Grupo",
+      "evento": "Evento"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "newoApp8App": {
+    "perfilEquipoEmpresa": {
+      "home": {
+        "title": "Perfil Equipo Empresas",
+        "createLabel": "Crear nuevo Perfil Equipo Empresa",
+        "createOrEditLabel": "Crear o editar Perfil Equipo Empresa",
+        "notFound": "No Perfil Equipo Empresa found"
+      },
+      "created": "Un nuevo Perfil Equipo Empresa ha sido creado con el identificador {{ param }}",
+      "updated": "Un Perfil Equipo Empresa ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Perfil Equipo Empresa ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Perfil Equipo Empresa {{ id }}?"
+      },
+      "detail": {
+        "title": "Perfil Equipo Empresa"
+      },
+      "biografia": "Biografia",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "fot3": "Fot 3",
+      "conocimientosQueDomina": "Conocimientos Que Domina",
+      "temasDeInteres": "Temas De Interes",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "idGoogle": "Id Google",
+      "twiter": "Twiter",
+      "empresa": "Empresa"
+    }
+  }
+}

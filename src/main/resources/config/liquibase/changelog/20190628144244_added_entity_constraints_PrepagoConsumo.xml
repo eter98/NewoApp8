@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity PrepagoConsumo.
+    -->
+    <changeSet id="20190628144244-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="miembro_id"
+                                 baseTableName="prepago_consumo"
+                                 constraintName="fk_prepago_consumo_miembro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miembros"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_prepago_id"
+                                 baseTableName="prepago_consumo"
+                                 constraintName="fk_prepago_consumo_tipo_prepago_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_prepago_consumo"/>
+
+    </changeSet>
+</databaseChangeLog>

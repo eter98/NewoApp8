@@ -1,0 +1,191 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-productos-servicios-heading" jhiTranslate="newoApp8App.productosServicios.home.createOrEditLabel">Create or edit a Productos Servicios</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.nombreProducto" for="field_nombreProducto">Nombre Producto</label>
+                    <input type="text" class="form-control" name="nombreProducto" id="field_nombreProducto"
+                           formControlName="nombreProducto"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.foto" for="field_foto">Foto</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoContentType').value + ';base64,' + editForm.get('foto').value" style="max-height: 100px;" *ngIf="editForm.get('foto').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('foto').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoContentType').value}}, {{byteSize(editForm.get('foto').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto" (change)="setFileData($event, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                    <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                           formControlName="fotoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.inventariables" for="field_inventariables">Inventariables</label>
+                    <input type="checkbox" class="form-control" name="inventariables" id="field_inventariables"
+                           formControlName="inventariables"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.valor" for="field_valor">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                           formControlName="valor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.impuesto" for="field_impuesto">Impuesto</label>
+                    <select class="form-control" name="impuesto" formControlName="impuesto" id="field_impuesto">
+                        <option value="IVA19">{{'newoApp8App.Impuestod.IVA19' | translate}}</option>
+                        <option value="IVA6">{{'newoApp8App.Impuestod.IVA6' | translate}}</option>
+                        <option value="IVA0">{{'newoApp8App.Impuestod.IVA0' | translate}}</option>
+                        <option value="ICO">{{'newoApp8App.Impuestod.ICO' | translate}}</option>
+                        <option value="IPOCONSUMO8">{{'newoApp8App.Impuestod.IPOCONSUMO8' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.video" for="field_video">Video</label>
+                    <div>
+                        <div *ngIf="editForm.get('video').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('videoContentType').value, editForm.get('video').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('videoContentType').value}}, {{byteSize(editForm.get('video').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({video: null});editForm.patchValue({videoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_video" (change)="setFileData($event, 'video', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="video" id="field_video"
+                           formControlName="video"/>
+                    <input type="hidden" class="form-control" name="videoContentType" id="field_videoContentType"
+                           formControlName="videoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.imagen1" for="field_imagen1">Imagen 1</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen1ContentType').value + ';base64,' + editForm.get('imagen1').value" style="max-height: 100px;" *ngIf="editForm.get('imagen1').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('imagen1').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen1ContentType').value}}, {{byteSize(editForm.get('imagen1').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen1', 'imagen1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen1" (change)="setFileData($event, 'imagen1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen1" id="field_imagen1"
+                           formControlName="imagen1"/>
+                    <input type="hidden" class="form-control" name="imagen1ContentType" id="field_imagen1ContentType"
+                           formControlName="imagen1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.imagen2" for="field_imagen2">Imagen 2</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen2ContentType').value + ';base64,' + editForm.get('imagen2').value" style="max-height: 100px;" *ngIf="editForm.get('imagen2').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('imagen2').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen2ContentType').value}}, {{byteSize(editForm.get('imagen2').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen2', 'imagen2ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen2" (change)="setFileData($event, 'imagen2', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen2" id="field_imagen2"
+                           formControlName="imagen2"/>
+                    <input type="hidden" class="form-control" name="imagen2ContentType" id="field_imagen2ContentType"
+                           formControlName="imagen2ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.imagen3" for="field_imagen3">Imagen 3</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen3ContentType').value + ';base64,' + editForm.get('imagen3').value" style="max-height: 100px;" *ngIf="editForm.get('imagen3').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('imagen3').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen3ContentType').value}}, {{byteSize(editForm.get('imagen3').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen3', 'imagen3ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen3" (change)="setFileData($event, 'imagen3', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen3" id="field_imagen3"
+                           formControlName="imagen3"/>
+                    <input type="hidden" class="form-control" name="imagen3ContentType" id="field_imagen3ContentType"
+                           formControlName="imagen3ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.imagen4" for="field_imagen4">Imagen 4</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen4ContentType').value + ';base64,' + editForm.get('imagen4').value" style="max-height: 100px;" *ngIf="editForm.get('imagen4').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('imagen4').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen4ContentType').value}}, {{byteSize(editForm.get('imagen4').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen4', 'imagen4ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen4" (change)="setFileData($event, 'imagen4', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen4" id="field_imagen4"
+                           formControlName="imagen4"/>
+                    <input type="hidden" class="form-control" name="imagen4ContentType" id="field_imagen4ContentType"
+                           formControlName="imagen4ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.imagen5" for="field_imagen5">Imagen 5</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen5ContentType').value + ';base64,' + editForm.get('imagen5').value" style="max-height: 100px;" *ngIf="editForm.get('imagen5').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('imagen5').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen5ContentType').value}}, {{byteSize(editForm.get('imagen5').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen5', 'imagen5ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen5" (change)="setFileData($event, 'imagen5', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen5" id="field_imagen5"
+                           formControlName="imagen5"/>
+                    <input type="hidden" class="form-control" name="imagen5ContentType" id="field_imagen5ContentType"
+                           formControlName="imagen5ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.productosServicios.imagen6" for="field_imagen6">Imagen 6</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagen6ContentType').value + ';base64,' + editForm.get('imagen6').value" style="max-height: 100px;" *ngIf="editForm.get('imagen6').value" alt="productosServicios image"/>
+                        <div *ngIf="editForm.get('imagen6').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagen6ContentType').value}}, {{byteSize(editForm.get('imagen6').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen6', 'imagen6ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen6" (change)="setFileData($event, 'imagen6', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen6" id="field_imagen6"
+                           formControlName="imagen6"/>
+                    <input type="hidden" class="form-control" name="imagen6ContentType" id="field_imagen6ContentType"
+                           formControlName="imagen6ContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

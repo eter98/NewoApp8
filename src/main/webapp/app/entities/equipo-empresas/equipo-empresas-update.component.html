@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-equipo-empresas-heading" jhiTranslate="newoApp8App.equipoEmpresas.home.createOrEditLabel">Create or edit a Equipo Empresas</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.telefono" for="field_telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.correo" for="field_correo">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="field_correo"
+                           formControlName="correo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.descripcion" for="field_descripcion">Descripcion</label>
+                    <textarea class="form-control" name="descripcion" id="field_descripcion"
+                              formControlName="descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.logos" for="field_logos">Logos</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('logosContentType').value + ';base64,' + editForm.get('logos').value" style="max-height: 100px;" *ngIf="editForm.get('logos').value" alt="equipoEmpresas image"/>
+                        <div *ngIf="editForm.get('logos').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('logosContentType').value}}, {{byteSize(editForm.get('logos').value)}}</span>
+                            <button type="button" (click)="clearInputImage('logos', 'logosContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_logos" (change)="setFileData($event, 'logos', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="logos" id="field_logos"
+                           formControlName="logos"/>
+                    <input type="hidden" class="form-control" name="logosContentType" id="field_logosContentType"
+                           formControlName="logosContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.paginaWeb" for="field_paginaWeb">Pagina Web</label>
+                    <input type="text" class="form-control" name="paginaWeb" id="field_paginaWeb"
+                           formControlName="paginaWeb"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.usuario" for="field_usuario">Usuario</label>
+                    <select class="form-control" id="field_usuario" name="usuario" formControlName="usuario">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('usuario').value?.id ? editForm.get('usuario').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.equipoEmpresas.empresa" for="field_empresa">Empresa</label>
+                    <select class="form-control" id="field_empresa" name="empresa" formControlName="empresa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="empresaOption.id === editForm.get('empresa').value?.id ? editForm.get('empresa').value : empresaOption" *ngFor="let empresaOption of empresas; trackBy: trackEmpresaById">{{empresaOption.razonSocial}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

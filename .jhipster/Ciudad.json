@@ -1,0 +1,27 @@
+{
+    "name": "Ciudad",
+    "fields": [
+        {
+            "fieldName": "nombreCiudad",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pais",
+            "otherEntityRelationshipName": "ciudad",
+            "relationshipName": "pais",
+            "otherEntityField": "nombrePais"
+        }
+    ],
+    "changelogDate": "20190628144234",
+    "entityTableName": "ciudad",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

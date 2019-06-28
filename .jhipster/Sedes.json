@@ -1,0 +1,91 @@
+{
+    "name": "Sedes",
+    "fields": [
+        {
+            "fieldName": "nombreSede",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "coordenadaX",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "coordenadaY",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefonoComunidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefonoNegocio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcionSede",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "horario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "video",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "imagen1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imagen2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imagen3",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imagen4",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imagen5",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imagen6",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ciudad",
+            "otherEntityRelationshipName": "sedes",
+            "relationshipName": "ciudad",
+            "otherEntityField": "nombreCiudad"
+        }
+    ],
+    "changelogDate": "20190628144217",
+    "entityTableName": "sedes",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

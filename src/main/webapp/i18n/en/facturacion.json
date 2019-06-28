@@ -1,0 +1,29 @@
+{
+  "newoApp8App": {
+    "facturacion": {
+      "home": {
+        "title": "Facturacions",
+        "createLabel": "Create a new Facturacion",
+        "createOrEditLabel": "Create or edit a Facturacion",
+        "notFound": "No Facturacion found"
+      },
+      "created": "A new Facturacion is created with identifier {{ param }}",
+      "updated": "A Facturacion is updated with identifier {{ param }}",
+      "deleted": "A Facturacion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Facturacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Facturacion"
+      },
+      "titularFactura": "Titular Factura",
+      "tipoPersona": "Tipo Persona",
+      "periodicidadFacturacion": "Periodicidad Facturacion",
+      "maximoMonto": "Maximo Monto",
+      "registroCompra": "Registro Compra",
+      "empresa": "Empresa",
+      "titular": "Titular",
+      "cuentaAsociada": "Cuenta Asociada"
+    }
+  }
+}

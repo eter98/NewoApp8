@@ -1,0 +1,67 @@
+{
+    "name": "EquipoEmpresas",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "correo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "logos",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "paginaWeb",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "equipoEmpresas",
+            "relationshipName": "usuario",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "equipoEmpresas",
+            "relationshipName": "miembro",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "empresa",
+            "otherEntityRelationshipName": "equipoEmpresas",
+            "relationshipName": "empresa",
+            "otherEntityField": "razonSocial"
+        }
+    ],
+    "changelogDate": "20190628144225",
+    "entityTableName": "equipo_empresas",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

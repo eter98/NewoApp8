@@ -1,0 +1,113 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productosServicios">
+            <h2><span jhiTranslate="newoApp8App.productosServicios.detail.title">Productos Servicios</span> {{productosServicios.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.productosServicios.nombreProducto">Nombre Producto</span></dt>
+                <dd>
+                    <span>{{productosServicios.nombreProducto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.foto">
+                        <a (click)="openFile(productosServicios.fotoContentType, productosServicios.foto)">
+                            <img [src]="'data:' + productosServicios.fotoContentType + ';base64,' + productosServicios.foto" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.fotoContentType}}, {{byteSize(productosServicios.foto)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{productosServicios.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.inventariables">Inventariables</span></dt>
+                <dd>
+                    <span>{{productosServicios.inventariables}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.valor">Valor</span></dt>
+                <dd>
+                    <span>{{productosServicios.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + productosServicios.impuesto}}">{{productosServicios.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.video">
+                        <a (click)="openFile(productosServicios.videoContentType, productosServicios.video)" jhiTranslate="entity.action.open">open</a>
+                        {{productosServicios.videoContentType}}, {{byteSize(productosServicios.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.imagen1">Imagen 1</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.imagen1">
+                        <a (click)="openFile(productosServicios.imagen1ContentType, productosServicios.imagen1)">
+                            <img [src]="'data:' + productosServicios.imagen1ContentType + ';base64,' + productosServicios.imagen1" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.imagen1ContentType}}, {{byteSize(productosServicios.imagen1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.imagen2">Imagen 2</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.imagen2">
+                        <a (click)="openFile(productosServicios.imagen2ContentType, productosServicios.imagen2)">
+                            <img [src]="'data:' + productosServicios.imagen2ContentType + ';base64,' + productosServicios.imagen2" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.imagen2ContentType}}, {{byteSize(productosServicios.imagen2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.imagen3">Imagen 3</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.imagen3">
+                        <a (click)="openFile(productosServicios.imagen3ContentType, productosServicios.imagen3)">
+                            <img [src]="'data:' + productosServicios.imagen3ContentType + ';base64,' + productosServicios.imagen3" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.imagen3ContentType}}, {{byteSize(productosServicios.imagen3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.imagen4">Imagen 4</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.imagen4">
+                        <a (click)="openFile(productosServicios.imagen4ContentType, productosServicios.imagen4)">
+                            <img [src]="'data:' + productosServicios.imagen4ContentType + ';base64,' + productosServicios.imagen4" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.imagen4ContentType}}, {{byteSize(productosServicios.imagen4)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.imagen5">Imagen 5</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.imagen5">
+                        <a (click)="openFile(productosServicios.imagen5ContentType, productosServicios.imagen5)">
+                            <img [src]="'data:' + productosServicios.imagen5ContentType + ';base64,' + productosServicios.imagen5" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.imagen5ContentType}}, {{byteSize(productosServicios.imagen5)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.productosServicios.imagen6">Imagen 6</span></dt>
+                <dd>
+                    <div *ngIf="productosServicios.imagen6">
+                        <a (click)="openFile(productosServicios.imagen6ContentType, productosServicios.imagen6)">
+                            <img [src]="'data:' + productosServicios.imagen6ContentType + ';base64,' + productosServicios.imagen6" style="max-width: 100%;" alt="productosServicios image"/>
+                        </a>
+                        {{productosServicios.imagen6ContentType}}, {{byteSize(productosServicios.imagen6)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/productos-servicios', productosServicios.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

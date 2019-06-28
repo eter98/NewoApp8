@@ -1,0 +1,90 @@
+{
+    "name": "Evento",
+    "fields": [
+        {
+            "fieldName": "nombreEvento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "audio",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "video",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "foto1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "banner",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "tipoConsumo",
+            "fieldType": "TipoConsumod",
+            "fieldValues": "GRATIS,PAGO"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "impuesto",
+            "fieldType": "Impuestod",
+            "fieldValues": "IVA19,IVA6,IVA0,ICO,IPOCONSUMO8"
+        },
+        {
+            "fieldName": "tipoEvento",
+            "fieldType": "Categoriad",
+            "fieldValues": "GENERAL,DE_GRUPO,CORPORATIVO,INSTITUCIONAL,INTERNO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoriaContenidos",
+            "otherEntityRelationshipName": "evento",
+            "relationshipName": "categoriaEvento",
+            "otherEntityField": "categoria"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "grupos",
+            "otherEntityRelationshipName": "evento",
+            "relationshipName": "grupos",
+            "otherEntityField": "nombreGrupos"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miembros",
+            "otherEntityRelationshipName": "evento",
+            "relationshipName": "miebro",
+            "otherEntityField": "identificacion"
+        }
+    ],
+    "changelogDate": "20190628144236",
+    "entityTableName": "evento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

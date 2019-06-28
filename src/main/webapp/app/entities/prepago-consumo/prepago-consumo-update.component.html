@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prepago-consumo-heading" jhiTranslate="newoApp8App.prepagoConsumo.home.createOrEditLabel">Create or edit a Prepago Consumo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.prepagoConsumo.aporte" for="field_aporte">Aporte</label>
+                    <input type="number" class="form-control" name="aporte" id="field_aporte"
+                           formControlName="aporte"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.prepagoConsumo.saldoActual" for="field_saldoActual">Saldo Actual</label>
+                    <input type="number" class="form-control" name="saldoActual" id="field_saldoActual"
+                           formControlName="saldoActual"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.prepagoConsumo.fechaRegistro" for="field_fechaRegistro">Fecha Registro</label>
+                    <div class="input-group">
+                        <input id="field_fechaRegistro" type="text" class="form-control" name="fechaRegistro" ngbDatepicker  #fechaRegistroDp="ngbDatepicker" formControlName="fechaRegistro"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaRegistroDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.prepagoConsumo.fechaSaldoActual" for="field_fechaSaldoActual">Fecha Saldo Actual</label>
+                    <div class="input-group">
+                        <input id="field_fechaSaldoActual" type="text" class="form-control" name="fechaSaldoActual" ngbDatepicker  #fechaSaldoActualDp="ngbDatepicker" formControlName="fechaSaldoActual"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaSaldoActualDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.prepagoConsumo.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.prepagoConsumo.tipoPrepago" for="field_tipoPrepago">Tipo Prepago</label>
+                    <select class="form-control" id="field_tipoPrepago" name="tipoPrepago" formControlName="tipoPrepago">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoPrepagoConsumoOption.id === editForm.get('tipoPrepago').value?.id ? editForm.get('tipoPrepago').value : tipoPrepagoConsumoOption" *ngFor="let tipoPrepagoConsumoOption of tipoprepagoconsumos; trackBy: trackTipoPrepagoConsumoById">{{tipoPrepagoConsumoOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

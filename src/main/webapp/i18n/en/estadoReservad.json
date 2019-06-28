@@ -1,0 +1,12 @@
+{
+  "newoApp8App": {
+    "EstadoReservad": {
+      "null": "",
+      "Diseponible": "Diseponible",
+      "Reservado": "Reservado",
+      "Ocupado": "Ocupado",
+      "Extendido": "Extendido",
+      "Cerrado": "Cerrado"
+    }
+  }
+}

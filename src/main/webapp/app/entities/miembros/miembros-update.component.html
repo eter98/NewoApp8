@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-miembros-heading" jhiTranslate="newoApp8App.miembros.home.createOrEditLabel">Create or edit a Miembros</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.apellido" for="field_apellido">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="field_apellido"
+                           formControlName="apellido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.nacionalidad" for="field_nacionalidad">Nacionalidad</label>
+                    <input type="text" class="form-control" name="nacionalidad" id="field_nacionalidad"
+                           formControlName="nacionalidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.tipoDocumento" for="field_tipoDocumento">Tipo Documento</label>
+                    <select class="form-control" name="tipoDocumento" formControlName="tipoDocumento" id="field_tipoDocumento">
+                        <option value="Cedula">{{'newoApp8App.TipoDocumentod.Cedula' | translate}}</option>
+                        <option value="Cedula_Extranjeria">{{'newoApp8App.TipoDocumentod.Cedula_Extranjeria' | translate}}</option>
+                        <option value="Pasaporte">{{'newoApp8App.TipoDocumentod.Pasaporte' | translate}}</option>
+                        <option value="Otro">{{'newoApp8App.TipoDocumentod.Otro' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.identificacion" for="field_identificacion">Identificacion</label>
+                    <input type="number" class="form-control" name="identificacion" id="field_identificacion"
+                           formControlName="identificacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker  #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.fechaRegistro" for="field_fechaRegistro">Fecha Registro</label>
+                    <div class="input-group">
+                        <input id="field_fechaRegistro" type="text" class="form-control" name="fechaRegistro" ngbDatepicker  #fechaRegistroDp="ngbDatepicker" formControlName="fechaRegistro"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaRegistroDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.genero" for="field_genero">Genero</label>
+                    <select class="form-control" name="genero" formControlName="genero" id="field_genero">
+                        <option value="Masculino">{{'newoApp8App.Generod.Masculino' | translate}}</option>
+                        <option value="Femenino">{{'newoApp8App.Generod.Femenino' | translate}}</option>
+                        <option value="Otro">{{'newoApp8App.Generod.Otro' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.correoElectronico" for="field_correoElectronico">Correo Electronico</label>
+                    <input type="text" class="form-control" name="correoElectronico" id="field_correoElectronico"
+                           formControlName="correoElectronico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.celular" for="field_celular">Celular</label>
+                    <input type="text" class="form-control" name="celular" id="field_celular"
+                           formControlName="celular"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.derechosDeCompra" for="field_derechosDeCompra">Derechos De Compra</label>
+                    <input type="checkbox" class="form-control" name="derechosDeCompra" id="field_derechosDeCompra"
+                           formControlName="derechosDeCompra"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.accesoIlimitado" for="field_accesoIlimitado">Acceso Ilimitado</label>
+                    <input type="checkbox" class="form-control" name="accesoIlimitado" id="field_accesoIlimitado"
+                           formControlName="accesoIlimitado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.aliado" for="field_aliado">Aliado</label>
+                    <input type="checkbox" class="form-control" name="aliado" id="field_aliado"
+                           formControlName="aliado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.host" for="field_host">Host</label>
+                    <input type="checkbox" class="form-control" name="host" id="field_host"
+                           formControlName="host"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.miembros.sede" for="field_sede">Sede</label>
+                    <select class="form-control" id="field_sede" name="sede" formControlName="sede">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sedesOption.id === editForm.get('sede').value?.id ? editForm.get('sede').value : sedesOption" *ngFor="let sedesOption of sedes; trackBy: trackSedesById">{{sedesOption.nombreSede}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

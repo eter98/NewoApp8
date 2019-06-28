@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-facturacion-heading" jhiTranslate="newoApp8App.facturacion.home.createOrEditLabel">Create or edit a Facturacion</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.titularFactura" for="field_titularFactura">Titular Factura</label>
+                    <input type="text" class="form-control" name="titularFactura" id="field_titularFactura"
+                           formControlName="titularFactura"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.tipoPersona" for="field_tipoPersona">Tipo Persona</label>
+                    <select class="form-control" name="tipoPersona" formControlName="tipoPersona" id="field_tipoPersona">
+                        <option value="NATURAL">{{'newoApp8App.TipoPersonad.NATURAL' | translate}}</option>
+                        <option value="JURIDICA">{{'newoApp8App.TipoPersonad.JURIDICA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.periodicidadFacturacion" for="field_periodicidadFacturacion">Periodicidad Facturacion</label>
+                    <select class="form-control" name="periodicidadFacturacion" formControlName="periodicidadFacturacion" id="field_periodicidadFacturacion">
+                        <option value="SEMANAL">{{'newoApp8App.PeriodicidadFacturaciond.SEMANAL' | translate}}</option>
+                        <option value="QUINCENAL">{{'newoApp8App.PeriodicidadFacturaciond.QUINCENAL' | translate}}</option>
+                        <option value="MENSUAL">{{'newoApp8App.PeriodicidadFacturaciond.MENSUAL' | translate}}</option>
+                        <option value="BIMESTRAL">{{'newoApp8App.PeriodicidadFacturaciond.BIMESTRAL' | translate}}</option>
+                        <option value="TRIMESTRAL">{{'newoApp8App.PeriodicidadFacturaciond.TRIMESTRAL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.maximoMonto" for="field_maximoMonto">Maximo Monto</label>
+                    <input type="number" class="form-control" name="maximoMonto" id="field_maximoMonto"
+                           formControlName="maximoMonto"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.empresa" for="field_empresa">Empresa</label>
+                    <select class="form-control" id="field_empresa" name="empresa" formControlName="empresa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="empresaOption.id === editForm.get('empresa').value?.id ? editForm.get('empresa').value : empresaOption" *ngFor="let empresaOption of empresas; trackBy: trackEmpresaById">{{empresaOption.razonSocial}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.titular" for="field_titular">Titular</label>
+                    <select class="form-control" id="field_titular" name="titular" formControlName="titular">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cuentaAsociadaOption.id === editForm.get('titular').value?.id ? editForm.get('titular').value : cuentaAsociadaOption" *ngFor="let cuentaAsociadaOption of cuentaasociadas; trackBy: trackCuentaAsociadaById">{{cuentaAsociadaOption.identificacionTitular}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.facturacion.cuentaAsociada" for="field_cuentaAsociada">Cuenta Asociada</label>
+                    <select class="form-control" id="field_cuentaAsociada" name="cuentaAsociada" formControlName="cuentaAsociada">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cuentaAsociadaOption.id === editForm.get('cuentaAsociada').value?.id ? editForm.get('cuentaAsociada').value : cuentaAsociadaOption" *ngFor="let cuentaAsociadaOption of cuentaasociadas; trackBy: trackCuentaAsociadaById">{{cuentaAsociadaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

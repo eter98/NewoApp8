@@ -1,0 +1,186 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-grupos-heading" jhiTranslate="newoApp8App.grupos.home.createOrEditLabel">Create or edit a Grupos</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.nombreGrupo" for="field_nombreGrupo">Nombre Grupo</label>
+                    <input type="text" class="form-control" name="nombreGrupo" id="field_nombreGrupo"
+                           formControlName="nombreGrupo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.instagram" for="field_instagram">Instagram</label>
+                    <input type="text" class="form-control" name="instagram" id="field_instagram"
+                           formControlName="instagram"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.facebook" for="field_facebook">Facebook</label>
+                    <input type="text" class="form-control" name="facebook" id="field_facebook"
+                           formControlName="facebook"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.twiter" for="field_twiter">Twiter</label>
+                    <input type="text" class="form-control" name="twiter" id="field_twiter"
+                           formControlName="twiter"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.linkedIn" for="field_linkedIn">Linked In</label>
+                    <input type="text" class="form-control" name="linkedIn" id="field_linkedIn"
+                           formControlName="linkedIn"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.tipoGrupo" for="field_tipoGrupo">Tipo Grupo</label>
+                    <select class="form-control" name="tipoGrupo" formControlName="tipoGrupo" id="field_tipoGrupo">
+                        <option value="INTERNO">{{'newoApp8App.TipoGrupod.INTERNO' | translate}}</option>
+                        <option value="EXTERNO">{{'newoApp8App.TipoGrupod.EXTERNO' | translate}}</option>
+                        <option value="PATROCINADO">{{'newoApp8App.TipoGrupod.PATROCINADO' | translate}}</option>
+                        <option value="PUBLICO">{{'newoApp8App.TipoGrupod.PUBLICO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.tipoConsumo" for="field_tipoConsumo">Tipo Consumo</label>
+                    <select class="form-control" name="tipoConsumo" formControlName="tipoConsumo" id="field_tipoConsumo">
+                        <option value="GRATIS">{{'newoApp8App.TipoConsumod.GRATIS' | translate}}</option>
+                        <option value="PAGO">{{'newoApp8App.TipoConsumod.PAGO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.valorSuscripcion" for="field_valorSuscripcion">Valor Suscripcion</label>
+                    <input type="number" class="form-control" name="valorSuscripcion" id="field_valorSuscripcion"
+                           formControlName="valorSuscripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.impuesto" for="field_impuesto">Impuesto</label>
+                    <select class="form-control" name="impuesto" formControlName="impuesto" id="field_impuesto">
+                        <option value="IVA19">{{'newoApp8App.Impuestod.IVA19' | translate}}</option>
+                        <option value="IVA6">{{'newoApp8App.Impuestod.IVA6' | translate}}</option>
+                        <option value="IVA0">{{'newoApp8App.Impuestod.IVA0' | translate}}</option>
+                        <option value="ICO">{{'newoApp8App.Impuestod.ICO' | translate}}</option>
+                        <option value="IPOCONSUMO8">{{'newoApp8App.Impuestod.IPOCONSUMO8' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.reglasGrupo" for="field_reglasGrupo">Reglas Grupo</label>
+                    <textarea class="form-control" name="reglasGrupo" id="field_reglasGrupo"
+                              formControlName="reglasGrupo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.audio" for="field_audio">Audio</label>
+                    <div>
+                        <div *ngIf="editForm.get('audio').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('audioContentType').value, editForm.get('audio').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('audioContentType').value}}, {{byteSize(editForm.get('audio').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({audio: null});editForm.patchValue({audioContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_audio" (change)="setFileData($event, 'audio', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="audio" id="field_audio"
+                           formControlName="audio"/>
+                    <input type="hidden" class="form-control" name="audioContentType" id="field_audioContentType"
+                           formControlName="audioContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.video" for="field_video">Video</label>
+                    <div>
+                        <div *ngIf="editForm.get('video').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('videoContentType').value, editForm.get('video').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('videoContentType').value}}, {{byteSize(editForm.get('video').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({video: null});editForm.patchValue({videoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_video" (change)="setFileData($event, 'video', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="video" id="field_video"
+                           formControlName="video"/>
+                    <input type="hidden" class="form-control" name="videoContentType" id="field_videoContentType"
+                           formControlName="videoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.foto1" for="field_foto1">Foto 1</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('foto1ContentType').value + ';base64,' + editForm.get('foto1').value" style="max-height: 100px;" *ngIf="editForm.get('foto1').value" alt="grupos image"/>
+                        <div *ngIf="editForm.get('foto1').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('foto1ContentType').value}}, {{byteSize(editForm.get('foto1').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto1', 'foto1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto1" (change)="setFileData($event, 'foto1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto1" id="field_foto1"
+                           formControlName="foto1"/>
+                    <input type="hidden" class="form-control" name="foto1ContentType" id="field_foto1ContentType"
+                           formControlName="foto1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.foto2" for="field_foto2">Foto 2</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('foto2ContentType').value + ';base64,' + editForm.get('foto2').value" style="max-height: 100px;" *ngIf="editForm.get('foto2').value" alt="grupos image"/>
+                        <div *ngIf="editForm.get('foto2').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('foto2ContentType').value}}, {{byteSize(editForm.get('foto2').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto2', 'foto2ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto2" (change)="setFileData($event, 'foto2', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto2" id="field_foto2"
+                           formControlName="foto2"/>
+                    <input type="hidden" class="form-control" name="foto2ContentType" id="field_foto2ContentType"
+                           formControlName="foto2ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.banner" for="field_banner">Banner</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('bannerContentType').value + ';base64,' + editForm.get('banner').value" style="max-height: 100px;" *ngIf="editForm.get('banner').value" alt="grupos image"/>
+                        <div *ngIf="editForm.get('banner').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('bannerContentType').value}}, {{byteSize(editForm.get('banner').value)}}</span>
+                            <button type="button" (click)="clearInputImage('banner', 'bannerContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_banner" (change)="setFileData($event, 'banner', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="banner" id="field_banner"
+                           formControlName="banner"/>
+                    <input type="hidden" class="form-control" name="bannerContentType" id="field_bannerContentType"
+                           formControlName="bannerContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.categoriaGrupo" for="field_categoriaGrupo">Categoria Grupo</label>
+                    <select class="form-control" id="field_categoriaGrupo" name="categoriaGrupo" formControlName="categoriaGrupo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaContenidosOption.id === editForm.get('categoriaGrupo').value?.id ? editForm.get('categoriaGrupo').value : categoriaContenidosOption" *ngFor="let categoriaContenidosOption of categoriacontenidos; trackBy: trackCategoriaContenidosById">{{categoriaContenidosOption.categoria}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.grupos.evento" for="field_evento">Evento</label>
+                    <select class="form-control" id="field_evento" name="evento" formControlName="evento">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eventoOption.id === editForm.get('evento').value?.id ? editForm.get('evento').value : eventoOption" *ngFor="let eventoOption of eventos; trackBy: trackEventoById">{{eventoOption.nombreEvento}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

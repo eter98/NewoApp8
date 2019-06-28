@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blog">
+            <h2><span jhiTranslate="newoApp8App.blog.detail.title">Blog</span> {{blog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.blog.titulo">Titulo</span></dt>
+                <dd>
+                    <span>{{blog.titulo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{blog.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.tipoContenido">Tipo Contenido</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Categoriad.' + blog.tipoContenido}}">{{blog.tipoContenido}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.contenidos">Contenidos</span></dt>
+                <dd>
+                    <span>{{blog.contenidos}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.audio">Audio</span></dt>
+                <dd>
+                    <div *ngIf="blog.audio">
+                        <a (click)="openFile(blog.audioContentType, blog.audio)" jhiTranslate="entity.action.open">open</a>
+                        {{blog.audioContentType}}, {{byteSize(blog.audio)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="blog.video">
+                        <a (click)="openFile(blog.videoContentType, blog.video)" jhiTranslate="entity.action.open">open</a>
+                        {{blog.videoContentType}}, {{byteSize(blog.video)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.foto1">Foto 1</span></dt>
+                <dd>
+                    <div *ngIf="blog.foto1">
+                        <a (click)="openFile(blog.foto1ContentType, blog.foto1)">
+                            <img [src]="'data:' + blog.foto1ContentType + ';base64,' + blog.foto1" style="max-width: 100%;" alt="blog image"/>
+                        </a>
+                        {{blog.foto1ContentType}}, {{byteSize(blog.foto1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.foto2">Foto 2</span></dt>
+                <dd>
+                    <div *ngIf="blog.foto2">
+                        <a (click)="openFile(blog.foto2ContentType, blog.foto2)">
+                            <img [src]="'data:' + blog.foto2ContentType + ';base64,' + blog.foto2" style="max-width: 100%;" alt="blog image"/>
+                        </a>
+                        {{blog.foto2ContentType}}, {{byteSize(blog.foto2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.banner">Banner</span></dt>
+                <dd>
+                    <div *ngIf="blog.banner">
+                        <a (click)="openFile(blog.bannerContentType, blog.banner)">
+                            <img [src]="'data:' + blog.bannerContentType + ';base64,' + blog.banner" style="max-width: 100%;" alt="blog image"/>
+                        </a>
+                        {{blog.bannerContentType}}, {{byteSize(blog.banner)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.tipoConsumo">Tipo Consumo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.TipoConsumod.' + blog.tipoConsumo}}">{{blog.tipoConsumo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.valor">Valor</span></dt>
+                <dd>
+                    <span>{{blog.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.Impuestod.' + blog.impuesto}}">{{blog.impuesto}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.estadoPublicacion">Estado Publicacion</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp8App.EstadoPublicaciond.' + blog.estadoPublicacion}}">{{blog.estadoPublicacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.categoriaBlog">Categoria Blog</span></dt>
+                <dd>
+                    <div *ngIf="blog.categoriaBlog">
+                        <a [routerLink]="['/categoria-contenidos', blog.categoriaBlog?.id, 'view']">{{blog.categoriaBlog?.categoria}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.grupos">Grupos</span></dt>
+                <dd>
+                    <div *ngIf="blog.grupos">
+                        <a [routerLink]="['/grupos', blog.grupos?.id, 'view']">{{blog.grupos?.nombreGrupos}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.blog.miembro">Miembro</span></dt>
+                <dd>
+                    <div *ngIf="blog.miembro">
+                        <a [routerLink]="['/miembros', blog.miembro?.id, 'view']">{{blog.miembro?.identificacion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blog', blog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

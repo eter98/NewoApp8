@@ -1,0 +1,23 @@
+{
+  "newoApp8App": {
+    "margenNewoBlog": {
+      "home": {
+        "title": "Margen Newo Blogs",
+        "createLabel": "Crear nuevo Margen Newo Blog",
+        "createOrEditLabel": "Crear o editar Margen Newo Blog",
+        "notFound": "No Margen Newo Blog found"
+      },
+      "created": "Un nuevo Margen Newo Blog ha sido creado con el identificador {{ param }}",
+      "updated": "Un Margen Newo Blog ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Margen Newo Blog ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Margen Newo Blog {{ id }}?"
+      },
+      "detail": {
+        "title": "Margen Newo Blog"
+      },
+      "porcentajeMargen": "Porcentaje Margen",
+      "blog": "Blog"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-consumo-market-heading" jhiTranslate="newoApp8App.consumoMarket.home.createOrEditLabel">Create or edit a Consumo Market</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.consumoMarket.totalConsumido" for="field_totalConsumido">Total Consumido</label>
+                    <input type="number" class="form-control" name="totalConsumido" id="field_totalConsumido"
+                           formControlName="totalConsumido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.consumoMarket.registroFechaInicial" for="field_registroFechaInicial">Registro Fecha Inicial</label>
+                    <div class="input-group">
+                        <input id="field_registroFechaInicial" type="text" class="form-control" name="registroFechaInicial" ngbDatepicker  #registroFechaInicialDp="ngbDatepicker" formControlName="registroFechaInicial"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="registroFechaInicialDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.consumoMarket.registroFechaFinal" for="field_registroFechaFinal">Registro Fecha Final</label>
+                    <div class="input-group">
+                        <input id="field_registroFechaFinal" type="text" class="form-control" name="registroFechaFinal" ngbDatepicker  #registroFechaFinalDp="ngbDatepicker" formControlName="registroFechaFinal"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="registroFechaFinalDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.consumoMarket.impuesto" for="field_impuesto">Impuesto</label>
+                    <select class="form-control" name="impuesto" formControlName="impuesto" id="field_impuesto">
+                        <option value="IVA19">{{'newoApp8App.Impuestod.IVA19' | translate}}</option>
+                        <option value="IVA6">{{'newoApp8App.Impuestod.IVA6' | translate}}</option>
+                        <option value="IVA0">{{'newoApp8App.Impuestod.IVA0' | translate}}</option>
+                        <option value="ICO">{{'newoApp8App.Impuestod.ICO' | translate}}</option>
+                        <option value="IPOCONSUMO8">{{'newoApp8App.Impuestod.IPOCONSUMO8' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.consumoMarket.miembro" for="field_miembro">Miembro</label>
+                    <select class="form-control" id="field_miembro" name="miembro" formControlName="miembro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miembrosOption.id === editForm.get('miembro').value?.id ? editForm.get('miembro').value : miembrosOption" *ngFor="let miembrosOption of miembros; trackBy: trackMiembrosById">{{miembrosOption.identificacion}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

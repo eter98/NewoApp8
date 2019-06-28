@@ -1,0 +1,23 @@
+{
+  "newoApp8App": {
+    "margenNewoProductos": {
+      "home": {
+        "title": "Margen Newo Productos",
+        "createLabel": "Crear nuevo Margen Newo Productos",
+        "createOrEditLabel": "Crear o editar Margen Newo Productos",
+        "notFound": "No Margen Newo Productos found"
+      },
+      "created": "Un nuevo Margen Newo Productos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Margen Newo Productos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Margen Newo Productos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Margen Newo Productos {{ id }}?"
+      },
+      "detail": {
+        "title": "Margen Newo Productos"
+      },
+      "porcentajeMargen": "Porcentaje Margen",
+      "producto": "Producto"
+    }
+  }
+}

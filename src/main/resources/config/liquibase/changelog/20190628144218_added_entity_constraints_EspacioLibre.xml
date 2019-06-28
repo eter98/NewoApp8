@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity EspacioLibre.
+    -->
+    <changeSet id="20190628144218-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="sede_id"
+                                 baseTableName="espacio_libre"
+                                 constraintName="fk_espacio_libre_sede_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sedes"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_espacio_id"
+                                 baseTableName="espacio_libre"
+                                 constraintName="fk_espacio_libre_tipo_espacio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_espacio"/>
+
+    </changeSet>
+</databaseChangeLog>

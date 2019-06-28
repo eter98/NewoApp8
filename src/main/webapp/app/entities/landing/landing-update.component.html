@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-landing-heading" jhiTranslate="newoApp8App.landing.home.createOrEditLabel">Create or edit a Landing</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.telefonoNegocio" for="field_telefonoNegocio">Telefono Negocio</label>
+                    <input type="text" class="form-control" name="telefonoNegocio" id="field_telefonoNegocio"
+                           formControlName="telefonoNegocio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.numeroPuestos" for="field_numeroPuestos">Numero Puestos</label>
+                    <input type="number" class="form-control" name="numeroPuestos" id="field_numeroPuestos"
+                           formControlName="numeroPuestos"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.tarifa" for="field_tarifa">Tarifa</label>
+                    <input type="number" class="form-control" name="tarifa" id="field_tarifa"
+                           formControlName="tarifa"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.fotografia" for="field_fotografia">Fotografia</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotografiaContentType').value + ';base64,' + editForm.get('fotografia').value" style="max-height: 100px;" *ngIf="editForm.get('fotografia').value" alt="landing image"/>
+                        <div *ngIf="editForm.get('fotografia').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotografiaContentType').value}}, {{byteSize(editForm.get('fotografia').value)}}</span>
+                            <button type="button" (click)="clearInputImage('fotografia', 'fotografiaContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fotografia" (change)="setFileData($event, 'fotografia', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fotografia" id="field_fotografia"
+                           formControlName="fotografia"/>
+                    <input type="hidden" class="form-control" name="fotografiaContentType" id="field_fotografiaContentType"
+                           formControlName="fotografiaContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.mpuesto" for="field_mpuesto">Mpuesto</label>
+                    <select class="form-control" name="mpuesto" formControlName="mpuesto" id="field_mpuesto">
+                        <option value="IVA19">{{'newoApp8App.Impuestod.IVA19' | translate}}</option>
+                        <option value="IVA6">{{'newoApp8App.Impuestod.IVA6' | translate}}</option>
+                        <option value="IVA0">{{'newoApp8App.Impuestod.IVA0' | translate}}</option>
+                        <option value="ICO">{{'newoApp8App.Impuestod.ICO' | translate}}</option>
+                        <option value="IPOCONSUMO8">{{'newoApp8App.Impuestod.IPOCONSUMO8' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.landing.sede" for="field_sede">Sede</label>
+                    <select class="form-control" id="field_sede" name="sede" formControlName="sede">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sedesOption.id === editForm.get('sede').value?.id ? editForm.get('sede').value : sedesOption" *ngFor="let sedesOption of sedes; trackBy: trackSedesById">{{sedesOption.nombreSede}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

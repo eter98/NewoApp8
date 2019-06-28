@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="margenNewoGrupos">
+            <h2><span jhiTranslate="newoApp8App.margenNewoGrupos.detail.title">Margen Newo Grupos</span> {{margenNewoGrupos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp8App.margenNewoGrupos.porcentajeMargen">Porcentaje Margen</span></dt>
+                <dd>
+                    <span>{{margenNewoGrupos.porcentajeMargen}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp8App.margenNewoGrupos.grupo">Grupo</span></dt>
+                <dd>
+                    <div *ngIf="margenNewoGrupos.grupo">
+                        <a [routerLink]="['/grupos', margenNewoGrupos.grupo?.id, 'view']">{{margenNewoGrupos.grupo?.nombreGrupo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/margen-newo-grupos', margenNewoGrupos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

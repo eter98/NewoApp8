@@ -1,0 +1,120 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.blog.home.title">Blogs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blog" [routerLink]="['/blog/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.blog.home.createLabel">
+            Create new Blog
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blogs?.length === 0">
+        <span jhiTranslate="newoApp8App.blog.home.notFound">No blogs found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blogs?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.titulo">Titulo</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.descripcion">Descripcion</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.tipoContenido">Tipo Contenido</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.contenidos">Contenidos</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.audio">Audio</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.video">Video</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.foto1">Foto 1</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.foto2">Foto 2</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.banner">Banner</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.tipoConsumo">Tipo Consumo</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.valor">Valor</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.impuesto">Impuesto</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.estadoPublicacion">Estado Publicacion</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.categoriaBlog">Categoria Blog</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.grupos">Grupos</span></th>
+            <th><span jhiTranslate="newoApp8App.blog.miembro">Miembro</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let blog of blogs ;trackBy: trackId">
+                <td><a [routerLink]="['/blog', blog.id, 'view' ]">{{blog.id}}</a></td>
+                <td>{{blog.titulo}}</td>
+                <td>{{blog.descripcion}}</td>
+                <td jhiTranslate="{{'newoApp8App.Categoriad.' + blog.tipoContenido}}">{{blog.tipoContenido}}</td>
+                <td>{{blog.contenidos}}</td>
+                <td>
+                    <a *ngIf="blog.audio" (click)="openFile(blog.audioContentType, blog.audio)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="blog.audio">{{blog.audioContentType}}, {{byteSize(blog.audio)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blog.video" (click)="openFile(blog.videoContentType, blog.video)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="blog.video">{{blog.videoContentType}}, {{byteSize(blog.video)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blog.foto1" (click)="openFile(blog.foto1ContentType, blog.foto1)">
+                        <img [src]="'data:' + blog.foto1ContentType + ';base64,' + blog.foto1" style="max-height: 30px;" alt="blog image"/>
+                    </a>
+                    <span *ngIf="blog.foto1">{{blog.foto1ContentType}}, {{byteSize(blog.foto1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blog.foto2" (click)="openFile(blog.foto2ContentType, blog.foto2)">
+                        <img [src]="'data:' + blog.foto2ContentType + ';base64,' + blog.foto2" style="max-height: 30px;" alt="blog image"/>
+                    </a>
+                    <span *ngIf="blog.foto2">{{blog.foto2ContentType}}, {{byteSize(blog.foto2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blog.banner" (click)="openFile(blog.bannerContentType, blog.banner)">
+                        <img [src]="'data:' + blog.bannerContentType + ';base64,' + blog.banner" style="max-height: 30px;" alt="blog image"/>
+                    </a>
+                    <span *ngIf="blog.banner">{{blog.bannerContentType}}, {{byteSize(blog.banner)}}</span>
+                </td>
+                <td jhiTranslate="{{'newoApp8App.TipoConsumod.' + blog.tipoConsumo}}">{{blog.tipoConsumo}}</td>
+                <td>{{blog.valor}}</td>
+                <td jhiTranslate="{{'newoApp8App.Impuestod.' + blog.impuesto}}">{{blog.impuesto}}</td>
+                <td jhiTranslate="{{'newoApp8App.EstadoPublicaciond.' + blog.estadoPublicacion}}">{{blog.estadoPublicacion}}</td>
+                <td>
+                    <div *ngIf="blog.categoriaBlog">
+                        <a [routerLink]="['../categoria-contenidos', blog.categoriaBlog?.id, 'view' ]" >{{blog.categoriaBlog?.categoria}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="blog.grupos">
+                        <a [routerLink]="['../grupos', blog.grupos?.id, 'view' ]" >{{blog.grupos?.nombreGrupos}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="blog.miembro">
+                        <a [routerLink]="['../miembros', blog.miembro?.id, 'view' ]" >{{blog.miembro?.identificacion}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blog', blog.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blog', blog.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'blog', { outlets: { popup: blog.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

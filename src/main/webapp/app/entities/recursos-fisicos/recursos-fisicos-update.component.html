@@ -1,0 +1,165 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-recursos-fisicos-heading" jhiTranslate="newoApp8App.recursosFisicos.home.createOrEditLabel">Create or edit a Recursos Fisicos</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.recurso" for="field_recurso">Recurso</label>
+                    <input type="text" class="form-control" name="recurso" id="field_recurso"
+                           formControlName="recurso"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.tipo" for="field_tipo">Tipo</label>
+                    <select class="form-control" name="tipo" formControlName="tipo" id="field_tipo">
+                        <option value="Tiempo">{{'newoApp8App.TipoRecursod.Tiempo' | translate}}</option>
+                        <option value="Cantidad">{{'newoApp8App.TipoRecursod.Cantidad' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.unidadMedida" for="field_unidadMedida">Unidad Medida</label>
+                    <input type="text" class="form-control" name="unidadMedida" id="field_unidadMedida"
+                           formControlName="unidadMedida"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valorUnitario" for="field_valorUnitario">Valor Unitario</label>
+                    <input type="number" class="form-control" name="valorUnitario" id="field_valorUnitario"
+                           formControlName="valorUnitario"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor1H" for="field_valor1H">Valor 1 H</label>
+                    <input type="number" class="form-control" name="valor1H" id="field_valor1H"
+                           formControlName="valor1H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor2H" for="field_valor2H">Valor 2 H</label>
+                    <input type="number" class="form-control" name="valor2H" id="field_valor2H"
+                           formControlName="valor2H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor3H" for="field_valor3H">Valor 3 H</label>
+                    <input type="number" class="form-control" name="valor3H" id="field_valor3H"
+                           formControlName="valor3H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor4H" for="field_valor4H">Valor 4 H</label>
+                    <input type="number" class="form-control" name="valor4H" id="field_valor4H"
+                           formControlName="valor4H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor5H" for="field_valor5H">Valor 5 H</label>
+                    <input type="number" class="form-control" name="valor5H" id="field_valor5H"
+                           formControlName="valor5H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor6H" for="field_valor6H">Valor 6 H</label>
+                    <input type="number" class="form-control" name="valor6H" id="field_valor6H"
+                           formControlName="valor6H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor7H" for="field_valor7H">Valor 7 H</label>
+                    <input type="number" class="form-control" name="valor7H" id="field_valor7H"
+                           formControlName="valor7H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor8H" for="field_valor8H">Valor 8 H</label>
+                    <input type="number" class="form-control" name="valor8H" id="field_valor8H"
+                           formControlName="valor8H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor9H" for="field_valor9H">Valor 9 H</label>
+                    <input type="number" class="form-control" name="valor9H" id="field_valor9H"
+                           formControlName="valor9H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor10H" for="field_valor10H">Valor 10 H</label>
+                    <input type="number" class="form-control" name="valor10H" id="field_valor10H"
+                           formControlName="valor10H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor11H" for="field_valor11H">Valor 11 H</label>
+                    <input type="number" class="form-control" name="valor11H" id="field_valor11H"
+                           formControlName="valor11H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.valor12H" for="field_valor12H">Valor 12 H</label>
+                    <input type="number" class="form-control" name="valor12H" id="field_valor12H"
+                           formControlName="valor12H"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.impuesto" for="field_impuesto">Impuesto</label>
+                    <select class="form-control" name="impuesto" formControlName="impuesto" id="field_impuesto">
+                        <option value="IVA19">{{'newoApp8App.Impuestod.IVA19' | translate}}</option>
+                        <option value="IVA6">{{'newoApp8App.Impuestod.IVA6' | translate}}</option>
+                        <option value="IVA0">{{'newoApp8App.Impuestod.IVA0' | translate}}</option>
+                        <option value="ICO">{{'newoApp8App.Impuestod.ICO' | translate}}</option>
+                        <option value="IPOCONSUMO8">{{'newoApp8App.Impuestod.IPOCONSUMO8' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.foto" for="field_foto">Foto</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoContentType').value + ';base64,' + editForm.get('foto').value" style="max-height: 100px;" *ngIf="editForm.get('foto').value" alt="recursosFisicos image"/>
+                        <div *ngIf="editForm.get('foto').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoContentType').value}}, {{byteSize(editForm.get('foto').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto" (change)="setFileData($event, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                    <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                           formControlName="fotoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.video" for="field_video">Video</label>
+                    <div>
+                        <div *ngIf="editForm.get('video').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('videoContentType').value, editForm.get('video').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('videoContentType').value}}, {{byteSize(editForm.get('video').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({video: null});editForm.patchValue({videoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_video" (change)="setFileData($event, 'video', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="video" id="field_video"
+                           formControlName="video"/>
+                    <input type="hidden" class="form-control" name="videoContentType" id="field_videoContentType"
+                           formControlName="videoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.sede" for="field_sede">Sede</label>
+                    <select class="form-control" id="field_sede" name="sede" formControlName="sede">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sedesOption.id === editForm.get('sede').value?.id ? editForm.get('sede').value : sedesOption" *ngFor="let sedesOption of sedes; trackBy: trackSedesById">{{sedesOption.nombreSede}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="newoApp8App.recursosFisicos.tipoRecurso" for="field_tipoRecurso">Tipo Recurso</label>
+                    <select class="form-control" id="field_tipoRecurso" name="tipoRecurso" formControlName="tipoRecurso">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoRecursoOption.id === editForm.get('tipoRecurso').value?.id ? editForm.get('tipoRecurso').value : tipoRecursoOption" *ngFor="let tipoRecursoOption of tiporecursos; trackBy: trackTipoRecursoById">{{tipoRecursoOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

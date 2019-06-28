@@ -1,0 +1,22 @@
+{
+  "newoApp8App": {
+    "categoriaContenidos": {
+      "home": {
+        "title": "Categoria Contenidos",
+        "createLabel": "Crear nuevo Categoria Contenidos",
+        "createOrEditLabel": "Crear o editar Categoria Contenidos",
+        "notFound": "No Categoria Contenidos found"
+      },
+      "created": "Un nuevo Categoria Contenidos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Categoria Contenidos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Categoria Contenidos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Categoria Contenidos {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Contenidos"
+      },
+      "categoria": "Categoria"
+    }
+  }
+}

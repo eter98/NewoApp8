@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Blog.
+    -->
+    <changeSet id="20190628144235-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="categoria_blog_id"
+                                 baseTableName="blog"
+                                 constraintName="fk_blog_categoria_blog_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="categoria_contenidos"/>
+
+        <addForeignKeyConstraint baseColumnNames="grupos_id"
+                                 baseTableName="blog"
+                                 constraintName="fk_blog_grupos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grupos"/>
+
+        <addForeignKeyConstraint baseColumnNames="miembro_id"
+                                 baseTableName="blog"
+                                 constraintName="fk_blog_miembro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miembros"/>
+
+    </changeSet>
+</databaseChangeLog>

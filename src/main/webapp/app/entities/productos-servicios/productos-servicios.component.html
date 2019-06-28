@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="newoApp8App.productosServicios.home.title">Productos Servicios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-productos-servicios" [routerLink]="['/productos-servicios/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="newoApp8App.productosServicios.home.createLabel">
+            Create new Productos Servicios
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="productosServicios?.length === 0">
+        <span jhiTranslate="newoApp8App.productosServicios.home.notFound">No productosServicios found</span>
+    </div>
+    <div class="table-responsive" *ngIf="productosServicios?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.nombreProducto">Nombre Producto</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.foto">Foto</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.descripcion">Descripcion</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.inventariables">Inventariables</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.valor">Valor</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.impuesto">Impuesto</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.video">Video</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.imagen1">Imagen 1</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.imagen2">Imagen 2</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.imagen3">Imagen 3</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.imagen4">Imagen 4</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.imagen5">Imagen 5</span></th>
+            <th><span jhiTranslate="newoApp8App.productosServicios.imagen6">Imagen 6</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let productosServicios of productosServicios ;trackBy: trackId">
+                <td><a [routerLink]="['/productos-servicios', productosServicios.id, 'view' ]">{{productosServicios.id}}</a></td>
+                <td>{{productosServicios.nombreProducto}}</td>
+                <td>
+                    <a *ngIf="productosServicios.foto" (click)="openFile(productosServicios.fotoContentType, productosServicios.foto)">
+                        <img [src]="'data:' + productosServicios.fotoContentType + ';base64,' + productosServicios.foto" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.foto">{{productosServicios.fotoContentType}}, {{byteSize(productosServicios.foto)}}</span>
+                </td>
+                <td>{{productosServicios.descripcion}}</td>
+                <td>{{productosServicios.inventariables}}</td>
+                <td>{{productosServicios.valor}}</td>
+                <td jhiTranslate="{{'newoApp8App.Impuestod.' + productosServicios.impuesto}}">{{productosServicios.impuesto}}</td>
+                <td>
+                    <a *ngIf="productosServicios.video" (click)="openFile(productosServicios.videoContentType, productosServicios.video)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="productosServicios.video">{{productosServicios.videoContentType}}, {{byteSize(productosServicios.video)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="productosServicios.imagen1" (click)="openFile(productosServicios.imagen1ContentType, productosServicios.imagen1)">
+                        <img [src]="'data:' + productosServicios.imagen1ContentType + ';base64,' + productosServicios.imagen1" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.imagen1">{{productosServicios.imagen1ContentType}}, {{byteSize(productosServicios.imagen1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="productosServicios.imagen2" (click)="openFile(productosServicios.imagen2ContentType, productosServicios.imagen2)">
+                        <img [src]="'data:' + productosServicios.imagen2ContentType + ';base64,' + productosServicios.imagen2" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.imagen2">{{productosServicios.imagen2ContentType}}, {{byteSize(productosServicios.imagen2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="productosServicios.imagen3" (click)="openFile(productosServicios.imagen3ContentType, productosServicios.imagen3)">
+                        <img [src]="'data:' + productosServicios.imagen3ContentType + ';base64,' + productosServicios.imagen3" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.imagen3">{{productosServicios.imagen3ContentType}}, {{byteSize(productosServicios.imagen3)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="productosServicios.imagen4" (click)="openFile(productosServicios.imagen4ContentType, productosServicios.imagen4)">
+                        <img [src]="'data:' + productosServicios.imagen4ContentType + ';base64,' + productosServicios.imagen4" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.imagen4">{{productosServicios.imagen4ContentType}}, {{byteSize(productosServicios.imagen4)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="productosServicios.imagen5" (click)="openFile(productosServicios.imagen5ContentType, productosServicios.imagen5)">
+                        <img [src]="'data:' + productosServicios.imagen5ContentType + ';base64,' + productosServicios.imagen5" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.imagen5">{{productosServicios.imagen5ContentType}}, {{byteSize(productosServicios.imagen5)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="productosServicios.imagen6" (click)="openFile(productosServicios.imagen6ContentType, productosServicios.imagen6)">
+                        <img [src]="'data:' + productosServicios.imagen6ContentType + ';base64,' + productosServicios.imagen6" style="max-height: 30px;" alt="productosServicios image"/>
+                    </a>
+                    <span *ngIf="productosServicios.imagen6">{{productosServicios.imagen6ContentType}}, {{byteSize(productosServicios.imagen6)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/productos-servicios', productosServicios.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/productos-servicios', productosServicios.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'productos-servicios', { outlets: { popup: productosServicios.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

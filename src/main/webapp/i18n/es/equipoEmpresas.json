@@ -1,0 +1,31 @@
+{
+  "newoApp8App": {
+    "equipoEmpresas": {
+      "home": {
+        "title": "Equipo Empresas",
+        "createLabel": "Crear nuevo Equipo Empresas",
+        "createOrEditLabel": "Crear o editar Equipo Empresas",
+        "notFound": "No Equipo Empresas found"
+      },
+      "created": "Un nuevo Equipo Empresas ha sido creado con el identificador {{ param }}",
+      "updated": "Un Equipo Empresas ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Equipo Empresas ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Equipo Empresas {{ id }}?"
+      },
+      "detail": {
+        "title": "Equipo Empresas"
+      },
+      "nombre": "Nombre",
+      "telefono": "Telefono",
+      "correo": "Correo",
+      "direccion": "Direccion",
+      "descripcion": "Descripcion",
+      "logos": "Logos",
+      "paginaWeb": "Pagina Web",
+      "usuario": "Usuario",
+      "miembro": "Miembro",
+      "empresa": "Empresa"
+    }
+  }
+}
